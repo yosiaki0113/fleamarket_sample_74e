@@ -33,8 +33,8 @@ Things you may want to cover:
 ### Association
 - has_many :ship-to_addresses, dependent: :destroy
 - has_many :credit_cards, dependent: :destroy
-- has_many :seller_items, class_name: 'Item', foreign_key :"seller_id"
-- has_many :buyer_items, class_name: 'Item', foreign_key :"buyer_id"
+- has_many :seller_items, class_name: "Item", foreign_key :"seller_id"
+- has_many :buyer_items, class_name: "Item", foreign_key :"buyer_id"
 - has_one :profile, dependent: :destroy
 ※ user が消えると ship-o_address,credit-card,profile が消えることになる
 
@@ -96,8 +96,8 @@ Things you may want to cover:
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|foreign_key: true|
 ### Association
-- belongs_to :seller, class_name:"user", foreign_key :"seller_id"
-- belongs_to :buyer, class_name:"user", foreign_key :"buyer_id"
+- belongs_to :seller, class_name:"User", foreign_key :"seller_id"
+- belongs_to :buyer, class_name:"User", foreign_key :"buyer_id"
 - belongs_to :brand
 - belongs_to :category
 - has_many :images, dependent: :destroy

@@ -31,12 +31,12 @@ Things you may want to cover:
 |password|string|null: false|
 |nickname|string|null: false|
 ### Association
-- has_many :ship-to_addresses, dependent: :destroy
+- has_many :shipping_addresses, dependent: :destroy
 - has_many :credit_cards, dependent: :destroy
 - has_many :seller_items, class_name: "Item", foreign_key: "seller_id"
 - has_many :buyer_items, class_name: "Item", foreign_key: "buyer_id"
 - has_one :profile, dependent: :destroy
-※ user が消えると ship-o_address,credit-card,profile が消えることになる
+※ user が消えると shipping_address,credit-card,profile が消えることになる
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -50,7 +50,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## ship-to_addressesテーブル
+## shipping_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |destination_first_name|string|null: false|
@@ -81,7 +81,7 @@ Things you may want to cover:
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_name|string|null:false|
+|name|string|null:false|
 |text|text|null:false|
 |price|integer|null:false|
 |condtion|string|null:false|
@@ -116,7 +116,7 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|URL|string|null:false|
+|url|string|null:false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item

@@ -101,7 +101,7 @@ Things you may want to cover:
 - belongs_to :brand
 - belongs_to :category
 - has_many :images, dependent: :destroy
-※ item が消えると image が消えることになる
+※ item が消えると image が消えることになる。
 
 ## categoriesテーブル
 |Column|Type|Options|

@@ -70,13 +70,12 @@ Things you may want to cover:
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null:false|
-|expiration_year|integer|null:false|
-|expiration_month|integer|null:false|
-|security_code|integer|null:false|
+|customer_id|integer|null:false|
+|card_id|integer|null:false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+※ 個人情報保護のため、DBにカード情報を記録せず、pya.jpを用いて管理する。
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -107,7 +106,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
-|ancestry|string|null:false|
+|ancestry|string||
 ### Association
 - has_ancestry
 - has_many :items

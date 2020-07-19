@@ -70,8 +70,8 @@ Things you may want to cover:
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|customer_id|integer|null:false|
-|card_id|integer|null:false|
+|customer_id|string|null:false|
+|card_id|string|null:false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user

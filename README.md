@@ -75,7 +75,7 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-※ 個人情報保護のため、DBにカード情報を記録せず、pya.jpを用いて管理する。
+※ 個人情報保護のため、DBにカード情報を記録せず、pay.jpを用いて管理する。
 
 ## itemsテーブル
 |Column|Type|Options|

@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -71,3 +71,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'unicorn'
 end
+gem 'haml-rails' #hamlを使用するため
+gem 'devise' #ログイン機能
+gem 'carrierwave' #画像管理
+gem 'jquery-rails' #jqueryを使用するため
+gem 'font-awesome-sass' #フォントアイコンを使用するため
+gem 'ancestry' #カテゴリ管理
+gem 'payjp' #クレカ実装に使用
+gem 'fog-aws' #AWS S3への画像アップロード
+gem 'bxslider-rails' #スライドショーの作成に使用
+gem 'active_hash' #商品配送方法の選択に使用

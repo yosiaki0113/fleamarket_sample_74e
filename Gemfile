@@ -71,6 +71,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'unicorn'
 end
+
 gem 'haml-rails' #hamlを使用するため
 gem 'devise' #ログイン機能
 gem 'carrierwave' #画像管理
@@ -81,3 +82,4 @@ gem 'payjp' #クレカ実装に使用
 gem 'fog-aws' #AWS S3への画像アップロード
 gem 'bxslider-rails' #スライドショーの作成に使用
 gem 'active_hash' #商品配送方法の選択に使用
+

@@ -3,34 +3,41 @@
   color: #fff;
   background-color: #272727;
   text-align: center;
-  width: 100%;
-
-  .contents{
+  &__contents{
     max-width: 840px;
     margin: 0 auto;
     display: flex;
 
-    .content{
+    &__content{
       display: flex;
       flex-direction: column;
       width: calc(1 / 3 * 100%);
       margin: 0 2% 0 0;
-
-
       &__head{
         margin: 0 0 20px;
         font-size: 16px;
         font-weight: bold;
       }
-      .footer-link{
+      ul{
+        list-style: none;
+      }
+      li{
+        margin: 0;
+        padding: 0;
+      }
+
+      a{
         color: #fff;
         text-decoration: none;
-        font-size: 12px;
+        font-size: 13px;
         line-height: 32px;
-      }
-      .footer-link:hover{
-        text-decoration: underline;
-      }
+        padding-bottom:1px;
+        &:hover{
+          text-decoration: underline;
+          // padding-bottom: 8px;
+        }
+      }  
+
     }
   }
   &__logo{

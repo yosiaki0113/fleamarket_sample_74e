@@ -38,13 +38,20 @@
         }
       }
       &__itemlists{
-        margin: 30px 0;
+        margin: 30px auto;
         &__list{
           width: 220px;
           display: inline-block;
-          margin-bottom: 10px;
+          margin-bottom: 8px;
+          box-shadow: 0 1px 1px rgb(214, 209, 209);
+          margin-left: 7px;
           &:hover{
-            outline: solid 2px #3CCACE;
+            outline: solid 1px #3CCACE;
+            transition: box-shadow 0.5s ;
+            transition: opacity 1s ;
+            box-shadow: 0 0 8px darken($color: #3CCACE, $amount: 15%);
+            opacity: 0.75;
+            
           }
 
           a{

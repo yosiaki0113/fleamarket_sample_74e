@@ -172,7 +172,7 @@
   }
 
   .topMiddleDL{
-    background-image: url("/assets/pict/bg-topMiddleDl-pict.jpg");
+    background-image: url("pict/bg-topMiddleDl-pict.jpg");
     background-position: bottom right;
     height: 400px;
     background-size: cover;
@@ -311,7 +311,6 @@
         &__list{
           width: 220px;
           display: inline-block;
-          float: left;
           position: relative;
           &:hover{
             opacity: 0.8;
@@ -365,8 +364,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-              }
-              &__likeicon{
               }
               p{
                 font-size: 10px;

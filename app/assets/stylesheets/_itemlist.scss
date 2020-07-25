@@ -1,0 +1,117 @@
+.itemlistmain{
+  background: #f8f8f8;
+  &__showbox{
+    padding: 40px;
+    margin: 0 auto;
+    &__content{
+      width: 700px;
+      margin: 0 auto;
+      &__titlebox{
+        background-color: #fff;
+        border-radius: 5px;
+        &__title{
+          border-radius: 5px 5px 0 0;
+          padding: 16px 10px 8px;
+          background-color: #3CCACE;
+          color: #fff;
+          text-align: center;
+          font-weight: bold;
+          font-size: 22px;
+        }
+        &__sublists{
+          padding: 8px;
+          list-style: none;
+          li{
+            display: inline-block;
+            line-height: 26px;
+            margin: 10px;
+            white-space: nowrap;
+            &:hover{
+              text-decoration: underline;
+            }
+            a{
+              color: #ffb340;
+              text-decoration: none;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      &__itemlists{
+        margin: 30px 0;
+        &__list{
+          width: 220px;
+          display: inline-block;
+          margin-bottom: 10px;
+          &:hover{
+            outline: solid 2px #3CCACE;
+          }
+
+          a{
+            background-color: #fff;
+            display: inline-block;
+            text-decoration: none;
+          }
+          &__img{
+            width: 220px;
+            height: 150px;
+            overflow: hidden;
+            margin: 0;
+          }
+          &__body{
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            &__name{
+              overflow: hidden;
+              line-height: 1.5;
+              font-size: 16px;
+              text-align: left;
+            }
+            &__details{
+              font-size: 16px;
+              ul{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+              p{
+                font-size: 10px;
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .exhibitionBtn{
+    cursor: pointer;
+    width: 90px;
+    background: #3CCACE;
+    text-align: center;
+    border-radius: 4%;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    padding: 15px;
+    text-decoration: none;
+    transition: all 0.4s;
+    &:hover{
+      box-shadow:0 0 10px rgba(0,0,0,0.5);
+      background-color: darken($color: #3CCACE, $amount: 5%);
+   }
+  
+    &__text{
+      color: #fff;
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    &__icon{
+      width: 60%;
+    }
+  }
+
+}
+

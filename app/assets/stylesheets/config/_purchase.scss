@@ -2,19 +2,6 @@
   background-color: #f8f8f8;
   font-size: 13px;
   color: #333;
-  &__header {
-    height: 128px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &__top {
-      display: block;
-      height: 50%;
-      &--logo {
-        height: 100%;
-      }
-    }
-  }
   &__main {
     background-color: white;
     width: 700px;

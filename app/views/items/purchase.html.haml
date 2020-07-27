@@ -1,7 +1,5 @@
 = render "/items/sub-header"
 .purchase
-  .purchase__header
-    = link_to image_tag("/assets/logo/logo.png", class: "purchase__header__top--logo"), root_path, class: "purchase__header__top"
   .purchase__main
     .purchase__main--top
       購入内容の確認
@@ -26,4 +24,4 @@
         %p 岐阜県高山市宮川朝市
         %p 陣屋前
       = link_to "購入する", done_items_path, class: "purchase__main__items--button"
-= render "/items/sub-footer"
+  = render "/items/sub-footer"

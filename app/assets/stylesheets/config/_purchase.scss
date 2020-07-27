@@ -36,9 +36,15 @@
       max-width: 343px;
       margin: 0 auto;
       padding-bottom: 32px;
+      justify-content: space-between;
       &__item {
         border-bottom: 1px solid #f8f8f8;
-      padding: 32px 0;
+        padding: 32px 0;
+        display: flex;
+          justify-content: space-between;
+        &__text {
+          
+        }
         #pay_price {
           display: flex;
           justify-content: space-between;

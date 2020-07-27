@@ -13,13 +13,21 @@
         #pay_price
           %p.large_bold_text 支払い金額
           %p.large_bold_text ￥100
+      =check_box_tag :use_point
+      =label_tag :use_point, "ポイントを使用（所持ポイント:P0）"
       .purchase__main__items__item
         %p.small_bold_text 支払い方法
+        %p.change
+        = link_to "変更する ＞"
+      .purchase__main__items__item__text
         %p クレジットカード
         %p ************0000
         %p 有効期限00/00
       .purchase__main__items__item
         %p.small_bold_text 配送先
+        %p.change
+        = link_to "変更する ＞"
+      .purchase__main__items__item__text
         %p 〒000-0000
         %p 岐阜県高山市宮川朝市
         %p 陣屋前

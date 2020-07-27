@@ -1,0 +1,40 @@
+.purchase
+  .purchase__header
+    = link_to image_tag("/assets/logo/logo.png", class: "purchase__header__top--logo"), root_path, class: "purchase__header__top"
+  .purchase__main
+    .purchase__main--top
+      購入内容の確認
+    .purchase__main__goods
+      = image_tag("/assets/icon/icon-01.png", class: "purchase__main__goods--image")
+      .purchase__main__goods__text
+        %p 緑パンツと白シャツの男
+        %p.small_bold_text 送料込み（税込) ￥100
+    .purchase__main__items
+      .purchase__main__items__item
+        #pay_price
+          %p.large_bold_text 支払い金額
+          %p.large_bold_text ￥100
+      .purchase__main__items__item
+        %p.small_bold_text 支払い方法
+        %p クレジットカード
+        %p ************0000
+        %p 有効期限00/00
+      .purchase__main__items__item
+        %p.small_bold_text 配送先
+        %p 〒000-0000
+        %p 岐阜県高山市宮川朝市
+        %p 陣屋前
+      = link_to "購入する", purchase_items_path, class: "purchase__main__items--button"
+  .subfooter
+  .subfooter__info
+    %ul.contents
+      %li.content
+        = link_to "プライバシーポリシー", "#"
+      %li.content
+        = link_to "フリマ利用規約", "#"
+      %li.content
+        = link_to "特定商取引に関する表記", "#"
+  .subfooter__logo
+    = image_tag "/assets/logo/logo.png", width: 100;
+  .subfooter__copyright
+    ©︎FURIMA

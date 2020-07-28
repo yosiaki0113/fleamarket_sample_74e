@@ -12,7 +12,7 @@
     - if devise_mapping.rememberable?
       .field--remember
         = f.check_box :remember_me
-        = f.label :remember_me
+        = f.label :次回より入力を省略する
     .actions
       = f.submit "ログイン", class: "actions--btn"
   .transition

@@ -51,5 +51,3 @@
           = f.number_field :birth_day, autofocus: true, autocomplete: "birth_day", placeholder: "日", required: "true", class: "profile__field--form"
     .actions
       = f.submit "次へ", class: "actions--btn", url: "new_shipping_address_registration_path"
-  .transition
-    = render "devise/shared/links"

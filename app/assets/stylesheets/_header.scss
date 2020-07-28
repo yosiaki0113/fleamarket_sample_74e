@@ -1,5 +1,6 @@
 .header{
   padding: 0 60px;
+  background-color: #fff;
 
   &__inner{
     max-width: 1040px;
@@ -58,7 +59,7 @@
     .header-nav{
       display: flex;
       font-size: 14px;
-      margin-bottom: 10px;
+      padding-bottom: 10px;
       white-space: nowrap;
 
       &__left-nav{

@@ -103,62 +103,11 @@
           .pickupContainer__itemBox__head__title
             新規投稿商品
       .pickupContainer__itemBox__lists
-        .pickupContainer__itemBox__lists__list
-          .pickupContainer__itemBox__lists__list
-            = link_to "#" do
-              = image_tag "pict/item-001.jpg", class:"pickupContainer__itemBox__lists__list__img"
-              .pickupContainer__itemBox__lists__list__body
-                .pickupContainer__itemBox__lists__list__body__name
-                  メロン
-                .pickupContainer__itemBox__lists__list__body__details
-                  %ul
-                    %il 1000円
-                    %il 
-                      =icon('fa', 'star', class: 'pickupContainer__itemBox__lists__list__body__details__likeicon')
-                      2
-                  %p (税込み)
-        .pickupContainer__itemBox__lists__list
-          .pickupContainer__itemBox__lists__list
-            = link_to "#" do
-              = image_tag "pict/item-002.jpg", class:"pickupContainer__itemBox__lists__list__img"
-              .pickupContainer__itemBox__lists__list__body
-                .pickupContainer__itemBox__lists__list__body__name
-                  ソーセージ
-                .pickupContainer__itemBox__lists__list__body__details
-                  %ul
-                    %il 5000円
-                    %il 
-                      =icon('fa', 'star', class: 'pickupContainer__itemBox__lists__list__body__details__likeicon')
-                      ０
-                  %p (税込み)
-        .pickupContainer__itemBox__lists__list
-          .pickupContainer__itemBox__lists__list
-            = link_to "#" do
-              = image_tag "pict/item-003.png", class:"pickupContainer__itemBox__lists__list__img"
-              .pickupContainer__itemBox__lists__list__body
-                .pickupContainer__itemBox__lists__list__body__name
-                  さば
-                .pickupContainer__itemBox__lists__list__body__details
-                  %ul
-                    %il 500円
-                    %il 
-                      =icon('fa', 'star', class: 'pickupContainer__itemBox__lists__list__body__details__likeicon')
-                      ０
-                  %p (税込み)
-        .pickupContainer__itemBox__lists__list
-          .pickupContainer__itemBox__lists__list
-            = link_to "#" do
-              = image_tag "pict/item-004.jpg", class:"pickupContainer__itemBox__lists__list__img"
-              .pickupContainer__itemBox__lists__list__body
-                .pickupContainer__itemBox__lists__list__body__name
-                  フルーツセット
-                .pickupContainer__itemBox__lists__list__body__details
-                  %ul
-                    %il 10000円
-                    %il 
-                      =icon('fa', 'star', class: 'pickupContainer__itemBox__lists__list__body__details__likeicon')
-                      ０
-                  %p (税込み)
+        = render partial:'itemlist' ,locals: {name: "メロン", img: "pict/item-001.jpg",price: "1000", like: "2"}
+        = render partial:'itemlist' ,locals: {name: "ソーセージ", img: "pict/item-002.jpg",price: "5000", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "さば", img: "pict/item-003.png",price: "500", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "フルーツセット", img: "pict/item-004.jpg",price: "10000", like: "0"}
+
 
   .pickupContainer
     .pickupContainer__head
@@ -169,62 +118,12 @@
           .pickupContainer__itemBox__head__title
             アーカイバ
       .pickupContainer__itemBox__lists
-        .pickupContainer__itemBox__lists__list
-          .pickupContainer__itemBox__lists__list
-            = link_to "#" do
-              = image_tag "pict/item-001.jpg", class:"pickupContainer__itemBox__lists__list__img"
-              .pickupContainer__itemBox__lists__list__body
-                .pickupContainer__itemBox__lists__list__body__name
-                  メロン
-                .pickupContainer__itemBox__lists__list__body__details
-                  %ul
-                    %il 1000円
-                    %il 
-                      =icon('fa', 'star', class: 'pickupContainer__itemBox__lists__list__body__details__likeicon')
-                      2
-                  %p (税込み)
-        .pickupContainer__itemBox__lists__list
-          .pickupContainer__itemBox__lists__list
-            = link_to '#' do
-              = image_tag "pict/item-002.jpg", class:"pickupContainer__itemBox__lists__list__img"
-              .pickupContainer__itemBox__lists__list__body
-                .pickupContainer__itemBox__lists__list__body__name
-                  ソーセージ
-                .pickupContainer__itemBox__lists__list__body__details
-                  %ul
-                    %il 5000円
-                    %il 
-                      =icon('fa', 'star', class: 'pickupContainer__itemBox__lists__list__body__details__likeicon')
-                      ０
-                  %p (税込み)
-        .pickupContainer__itemBox__lists__list
-          .pickupContainer__itemBox__lists__list
-            = link_to "#" do
-              = image_tag "pict/item-003.png", class:"pickupContainer__itemBox__lists__list__img"
-              .pickupContainer__itemBox__lists__list__body
-                .pickupContainer__itemBox__lists__list__body__name
-                  さば
-                .pickupContainer__itemBox__lists__list__body__details
-                  %ul
-                    %il 500円
-                    %il 
-                      =icon('fa', 'star', class: 'pickupContainer__itemBox__lists__list__body__details__likeicon')
-                      ０
-                  %p (税込み)
-        .pickupContainer__itemBox__lists__list
-          .pickupContainer__itemBox__lists__list
-            = link_to "#" do
-              = image_tag "pict/item-004.jpg", class:"pickupContainer__itemBox__lists__list__img"
-              .pickupContainer__itemBox__lists__list__body
-                .pickupContainer__itemBox__lists__list__body__name
-                  フルーツセット
-                .pickupContainer__itemBox__lists__list__body__details
-                  %ul
-                    %il 10000円
-                    %il 
-                      =icon('fa', 'star', class: 'pickupContainer__itemBox__lists__list__body__details__likeicon')
-                      ０
-                  %p (税込み)
+        = render partial:'itemlist' ,locals: {name: "メロン", img: "pict/item-001.jpg",price: "1000", like: "2"}
+        = render partial:'itemlist' ,locals: {name: "ソーセージ", img: "pict/item-002.jpg",price: "5000", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "さば", img: "pict/item-003.png",price: "500", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "フルーツセット", img: "pict/item-004.jpg",price: "10000", like: "0"}
+
+
                   
   = link_to "#",class:"exhibitionBtn" do
     %span.exhibitionBtn__text 出品する

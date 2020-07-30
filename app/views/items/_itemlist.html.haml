@@ -1,0 +1,15 @@
+.itemlist
+  .pickupContainer__itemBox__lists__list
+    = link_to "#" do
+      = image_tag img, class:"itemlist__img"
+      .itemlist__body
+        .itemlist__body__name
+          = name
+        .itemlist__body__details
+          %ul
+            %il 
+              = price + "円"
+            %il 
+              =icon('fa', 'star', class: 'itemlist__body__details__likeicon')
+              = like
+          %p (税込み)

@@ -1,5 +1,6 @@
 .header{
   padding: 0 60px;
+  background-color: #fff;
 
   &__inner{
     max-width: 1040px;
@@ -41,10 +42,15 @@
             width: 36px;
             padding: 8px;
             cursor: pointer;
+            transition: all 0.2s;
             &__icon{
               vertical-align: bottom;
               width: 100%;
             }
+          }
+          &__button:hover{
+            box-shadow:
+            0 0 0 2px #3CCACE;
           }
         }
       }
@@ -53,7 +59,8 @@
     .header-nav{
       display: flex;
       font-size: 14px;
-      margin-bottom: 10px;
+      padding-bottom: 10px;
+      white-space: nowrap;
 
       &__left-nav{
         display: flex;
@@ -78,26 +85,44 @@
       &__right-nav{
         display: flex;
         margin-left: auto;
+        li{
+          margin-right: 20px;
+        }
+        li:last-of-type{
+          margin: 0;
+        }
         &__navbtn-in{
           text-decoration: none;
-          color: #333;
+          background-color: #3CCACE;
+          color: white;
           line-height: 32px;
-          padding-right: 30px;
           font-size: 14px;
+          font-weight: bolder;
+          padding: 9px 5px;
+          border: solid 1px #3CCACE;
+          border-radius: 0.4em;
+          transition: all 0.2s;
+
+          &:hover{
+            box-shadow: 0 0 5px darken($color: #3CCACE, $amount: 10%);
+          }
         }
         &__navbtn-up{
           text-decoration: none;
-          color: #333;
+          color: red;
           line-height: 32px;
           font-size: 14px;
+          transition: all 0.2s;
+          padding: 9px 5px;
+          background-color: white;
+          border: solid 1px red;
+          border-radius: 0.4em;
+          transition: all 0.4s;
+          &:hover{
+            background-color: red;
+            color: white;
+          }
         } 
-
-        &__navbtn-in:hover{
-          opacity: 0.7;
-        }
-        &__navbtn-up:hover{
-          opacity: 0.7;
-        }
       }
     }
   }

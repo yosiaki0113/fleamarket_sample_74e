@@ -1,0 +1,47 @@
+.itemlistmain
+  .itemlistmain__showbox
+    .itemlistmain__showbox__content
+      .itemlistmain__showbox__content__titlebox
+        .itemlistmain__showbox__content__titlebox__title
+          全商品一覧
+        %ul.itemlistmain__showbox__content__titlebox__sublists
+          %li
+            =link_to "菓子", "#"
+          %li
+            =link_to "米", "#"
+          %li
+            =link_to "野菜", "#"
+          %li
+            =link_to "果物", "#"
+          %li
+            =link_to "調味料", "#"
+          %li
+            =link_to "魚介類(加工食品)", "#"
+          %li
+            =link_to "肉類(加工食品)", "#"
+          %li
+            =link_to "トップス", "#"
+          %li
+            =link_to "ジャケット/アウター", "#"
+          %li
+            =link_to "パンツ", "#"
+          %li
+            =link_to "靴", "#"
+          %li
+            =link_to "バッグ", "#"
+          %li
+            =link_to "その他", "#"
+            
+      .itemlistmain__showbox__content__itemlists
+        = render partial:'itemlist' ,locals: {name: "メロン", img: "pict/item-001.jpg",price: "1000", like: "2"}
+        = render partial:'itemlist' ,locals: {name: "ソーセージ", img: "pict/item-002.jpg",price: "5000", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "さば", img: "pict/item-003.png",price: "500", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "フルーツセット", img: "pict/item-004.jpg",price: "10000", like: "0"}
+
+
+  
+  = link_to "#",class:"exhibitionBtn" do
+    %span.exhibitionBtn__text 出品する
+    = image_tag "icon/icon_camera.png",class:"exhibitionBtn__icon"
+
+= render "appbanner"

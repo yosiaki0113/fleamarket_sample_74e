@@ -1,0 +1,48 @@
+.main
+  %h2 商品送付先入力
+  .address
+    = form_for(:shipping_address) do |f|
+      .address__field
+        = f.label :お名前　, class: "field--label"
+        = f.label :必須, class: "field--must"
+        %br/
+        = f.text_field :destination_family_name, autofocus: true, autocomplete: "destination_family_name", placeholder: "田中", required: "true", class: "field--form"
+        = f.text_field :destination_first_name, autofocus: true, autocomplete: "destination_first_name", placeholder: "太郎", required: "true", class: "field--form"
+      .address__field
+        = f.label :お名前（ふりがな）, class: "field--label"
+        = f.label :必須, class: "field--must"
+        %br/
+        = f.text_field :destination_family_name_kana, autofocus: true, autocomplete: "destination_family_name_kana", placeholder: "たなか", required: "true", class: "field--form"
+        = f.text_field :destination_first_name_kana, autofocus: true, autocomplete: "destination_first_name_kana", placeholder: "たろう", required: "true", class: "field--form"
+      .address__field
+        = f.label :郵便番号　, class: "field--label"
+        = f.label :必須, class: "field--must"
+        %br/
+        = f.text_field :post_code, autofocus: true, autocomplete: "post_code", placeholder: "例) 123-4567", required: "true", class: "field--form"
+      .address__field
+        = f.label :都道府県　, class: "field--label"
+        = f.label :必須, class: "field--must"
+        %br/
+        = f.text_field :prefectures, autofocus: true, autocomplete: "prefectures", placeholder: "例) 東京都", required: "true", class: "field--form"
+      .address__field
+        = f.label :市区町村　, class: "field--label"
+        = f.label :必須, class: "field--must"
+        %br/
+        = f.text_field :city, autofocus: true, autocomplete: "city", placeholder: "例) 渋谷区道玄坂", required: "true", class: "field--form"
+      .address__field
+        = f.label :番地　, class: "field--label"
+        = f.label :必須, class: "field--must"
+        %br/
+        = f.text_field :house_number, autofocus: true, autocomplete: "house_number", placeholder: "例) 1-2-3", required: "true", class: "field--form"
+      .address__field
+        = f.label :建物名　, class: "field--label"
+        = f.label :任意, class: "field--any"
+        %br/
+        = f.text_field :building_name, autofocus: true, autocomplete: "building_name", placeholder: "例) 渋谷ビル", class: "field--form"
+      .address__field
+        = f.label :電話番号　, class: "field--label"
+        = f.label :必須, class: "field--must"
+        %br/
+        = f.text_field :phone, autofocus: true, autocomplete: "phone", placeholder: "080-1234-5678", required: "true", class: "field--form"
+      .actions
+        = f.submit "登録", class: "actions--btn", url: "#"

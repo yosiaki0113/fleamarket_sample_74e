@@ -11,5 +11,10 @@ class ItemsController < ApplicationController
   def show_itemlist
   end
 
+  def purchase
+  end
+
+  def done
+  end
 
 end

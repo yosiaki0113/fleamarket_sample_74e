@@ -1,0 +1,36 @@
+.purchase_end{
+  background-color: #f8f8f8;
+  height: 470px;
+  &__main {
+    max-width: 456px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 56px 0px 60px;
+    &__contents {
+      text-align: center;
+      max-width: 343px;
+      margin: 0 auto ;
+      padding: 0 16px;
+      &--top {
+        font-size: 22px;
+        text-align: center;
+        font-weight: bold;
+        padding: 0 16px 32px;
+        border-bottom: 1px solid #f8f8f8;
+      }
+      &--button {
+        background-color: #3CCACE;
+        height: 48px;
+        text-decoration: none;
+        color: white;
+        display: block;
+        font-size: 18px;
+        text-align: center;
+        line-height: 48px;
+        margin-top: 35px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+    }
+  }
+} 

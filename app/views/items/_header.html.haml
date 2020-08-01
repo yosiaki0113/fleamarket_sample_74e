@@ -4,24 +4,24 @@
     .header-top
       .header-top__icon
         = link_to '/' do
-          = image_tag "/assets/logo/logo.png",class:"header-top__icon__logo"
+          = image_tag asset_path("/assets/logo/logo.png"),class:"header-top__icon__logo"
       .header-top__searchBox
         %form.header-top__searchBox__form
           %input.header-top__searchBox__form__input{placeholder: "キーワードから探す"}/
           %button.header-top__searchBox__form__button{type: "submit"}
-            = image_tag "/assets/icon/icon-search 1.png",class:"header-top__searchBox__form__button__icon"
+            = image_tag asset_path("/assets/icon/icon-search 1.png"),class:"header-top__searchBox__form__button__icon"
 
     .header-nav
       %ul.header-nav__left-nav
         %li
           = link_to show_itemlist_items_path,class:'header-nav__left-nav__navbtn' do
-            = image_tag "/assets/icon/icon_category.png",class:"header-nav__left-nav__navbtn__icon"
+            = image_tag asset_path("/assets/icon/icon_category.png"),class:"header-nav__left-nav__navbtn__icon"
             .header-nav__left-nav__navbtn__text
               カテゴリー
 
         %li
           = link_to show_itemlist_items_path,class:'header-nav__left-nav__navbtn' do
-            = image_tag "/assets/icon/icon_brand.png",class:"header-nav__left-nav__navbtn__icon"
+            = image_tag asset_path("/assets/icon/icon_brand.png"),class:"header-nav__left-nav__navbtn__icon"
             .header-nav__left-nav__navbtn__text
               ブランド
 

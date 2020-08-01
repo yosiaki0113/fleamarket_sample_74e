@@ -9,9 +9,9 @@
         フリマアプリです
       .mainVisual__content__icon
         = link_to my_page_items_path, class: 'Btn' do
-          = image_tag "logo/app-store.svg",class:'mainVisual__content__icon__aBtn'
+          = image_tag asset_path("logo/app-store.svg"),class:'mainVisual__content__icon__aBtn'
         = link_to card_add_items_path,class: 'Btn' do
-          = image_tag "logo/google-play.svg",class:'mainVisual__content__icon__gBtn'
+          = image_tag asset_path("logo/google-play.svg"),class:'mainVisual__content__icon__gBtn'
 
   .topIntroduction
     .topIntroduction__title
@@ -21,7 +21,7 @@
         .topIntroduction__lists__list__pict
           %span.topIntroduction__lists__list__pict__number
             1
-          = image_tag "pict/pict-reason-01.jpg"
+          = image_tag asset_path("pict/pict-reason-01.jpg")
         .topIntroduction__lists__list__text
           %span 3分
           ですぐに出品
@@ -32,7 +32,7 @@
         .topIntroduction__lists__list__pict
           %span.topIntroduction__lists__list__pict__number
             2
-          = image_tag "pict/pict-reason-02.jpg"
+          = image_tag asset_path("pict/pict-reason-02.jpg")
         .topIntroduction__lists__list__text
           %span シンプル
           で使いやすい
@@ -43,7 +43,7 @@
         .topIntroduction__lists__list-last__pict
           %span.topIntroduction__lists__list-last__pict__number
             3
-          = image_tag "pict/pict-reason-03.jpg"
+          = image_tag asset_path("pict/pict-reason-03.jpg")
         .topIntroduction__lists__list-last__text
           手数料
           %span 業界最安
@@ -62,9 +62,9 @@
         ほしかったあの商品に出会えるかもしれません。
       .topMiddleDL__inner__icon
         = link_to '#',class: 'Btn' do
-          = image_tag "logo/app-store.svg",class:'topMiddleDL__inner__icon__aBtn'
+          = image_tag asset_path("logo/app-store.svg"),class:'topMiddleDL__inner__icon__aBtn'
         = link_to '#',class: 'Btn' do
-          = image_tag "logo/google-play.svg",class:'topMiddleDL__inner__icon__gBtn'
+          = image_tag asset_path("logo/google-play.svg"),class:'topMiddleDL__inner__icon__gBtn'
 
   .topKeyFeatures
     .topKeyFeatures__head
@@ -72,7 +72,7 @@
     .topKeyFeatures__items
       %section.topKeyFeatures__items__item
         %figure.topKeyFeatures__items__item__img
-          = image_tag "icon/icon-01.png"
+          = image_tag asset_path("icon/icon-01.png")
         .topKeyFeatures__items__item__title
           簡単に売り買いできる
         .topKeyFeatures__items__item__detail
@@ -80,7 +80,7 @@
 
       %section.topKeyFeatures__items__item
         %figure.topKeyFeatures__items__item__img
-          = image_tag "icon/icon-03.png"
+          = image_tag asset_path("icon/icon-03.png")
         .topKeyFeatures__items__item__title
           売上金は即日振込みに対応
         .topKeyFeatures__items__item__detail
@@ -88,7 +88,7 @@
 
       %section.topKeyFeatures__items__item
         %figure.topKeyFeatures__items__item__img
-          = image_tag "icon/icon-04.png"
+          = image_tag asset_path("icon/icon-04.png")
         .topKeyFeatures__items__item__title
           様々な支払いに対応
         .topKeyFeatures__items__item__detail
@@ -103,10 +103,10 @@
           .pickupContainer__itemBox__head__title
             新規投稿商品
       .pickupContainer__itemBox__lists
-        = render partial:'itemlist' ,locals: {name: "メロン", img: "pict/item-001.jpg",price: "1000", like: "2"}
-        = render partial:'itemlist' ,locals: {name: "ソーセージ", img: "pict/item-002.jpg",price: "5000", like: "0"}
-        = render partial:'itemlist' ,locals: {name: "さば", img: "pict/item-003.png",price: "500", like: "0"}
-        = render partial:'itemlist' ,locals: {name: "フルーツセット", img: "pict/item-004.jpg",price: "10000", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "メロン", img: asset_path("pict/item-001.jpg"),price: "1000", like: "2"}
+        = render partial:'itemlist' ,locals: {name: "ソーセージ", img: asset_path("pict/item-002.jpg"),price: "5000", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "さば", img: asset_path("pict/item-003.png"),price: "500", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "フルーツセット", img: asset_path("pict/item-004.jpg"),price: "10000", like: "0"}
 
 
   .pickupContainer
@@ -118,13 +118,13 @@
           .pickupContainer__itemBox__head__title
             アーカイバ
       .pickupContainer__itemBox__lists
-        = render partial:'itemlist' ,locals: {name: "メロン", img: "pict/item-001.jpg",price: "1000", like: "2"}
-        = render partial:'itemlist' ,locals: {name: "ソーセージ", img: "pict/item-002.jpg",price: "5000", like: "0"}
-        = render partial:'itemlist' ,locals: {name: "さば", img: "pict/item-003.png",price: "500", like: "0"}
-        = render partial:'itemlist' ,locals: {name: "フルーツセット", img: "pict/item-004.jpg",price: "10000", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "メロン", img: asset_path("pict/item-001.jpg"),price: "1000", like: "2"}
+        = render partial:'itemlist' ,locals: {name: "ソーセージ", img: asset_path("pict/item-002.jpg"),price: "5000", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "さば", img: asset_path("pict/item-003.png"),price: "500", like: "0"}
+        = render partial:'itemlist' ,locals: {name: "フルーツセット", img: asset_path("pict/item-004.jpg"),price: "10000", like: "0"}
 
 
                   
   = link_to new_items_path, class:"exhibitionBtn" do
     %span.exhibitionBtn__text 出品する
-    = image_tag "icon/icon_camera.png",class:"exhibitionBtn__icon"
+    = image_tag asset_path("icon/icon_camera.png"),class:"exhibitionBtn__icon"

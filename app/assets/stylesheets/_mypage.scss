@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+}
+.content {
+  width: calc(100% - 600px);
+  margin: 30px 150px 10px 450px;
+  position: absolute;
+    .mypage-user-icon {
+      background-image: url("mypage.jpeg");
+      height: 200px;
+      padding: 25px 0px 0px 340px;
+      .profile-bar {
+        position: absolute;
+        .profile-icon {
+          background-image: url("mypage_icon.jpeg");
+          border-radius: 50%;
+          height: 60px;
+          width: 60px;
+          position: relative;
+        }
+        .profile-name {
+          text-align: center;
+          margin: 5px 0px 0px;
+          font-size: 14px;
+          font-weight: bold;
+        }
+        .profile-number {
+          text-align: center;
+          margin: 5px 0px 0px;
+          font-size: 14px;
+          display: flex;
+          .evaluation {
+            padding-left: 20px;
+          }
+          .items {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+    .mypage-tab-container-notification-todo {
+      .news{
+        text-align: center;
+        height: 20px;
+        width: 100%;
+        background-color: white;
+        font-weight: bold;
+      }
+      .mypage-tabs-upper {
+        display: flex;
+        height: 70px;
+        font-weight: bold;
+      }
+      .tab-content {
+        .mypage-tab-notification {
+          .mypage-item-link {
+            height: 70px;
+            width: 100%;
+            background-color: white;
+            margin-top: 1px;
+            padding: 15px;
+            display: flex;
+            .item-link-img {
+              height: 40px;
+              width: 40px;
+              background-color: #3CCACE;
+            }
+
+            .item-link-right {
+              display: flex;
+              flex-direction: column;
+              width: calc(100% - 40px);
+              padding-left: 20px;       
+              font-size: 14px;       
+              .item-link-text {
+                height: 20px;
+              }
+              .item-link-time {
+                display: flex;
+                padding-top: 2px;
+                .time-icon {
+                  background-image: url("icon_time.jpeg");
+                  height: 22px;
+                  width: 22px
+                }
+                .time-text {
+                padding-left: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .mypage-tab-container {
+      background-color: white;
+      margin-top: 40px;
+      font-weight: bold;
+      .mypage-tab-head {
+        background-color: #FAFAFA;
+        height: 70px;
+        padding: 25px 0px 25px 25px;
+        font-weight: bold;
+      }
+      .mypage-tabs-lower {
+        display: flex;
+        .during-trading {
+          background-color: white;
+          width: 50%;
+          padding: 25px 125px;
+        }
+        .past-trading {
+          background-color: #DDDDDD;
+          width: 50%;
+          padding: 25px 100px;
+        }
+      }
+      .tab-content {
+        color: #DDDDDD;
+        text-align: center;
+        padding-top: 100px;
+        background-color: white;
+        height: 230px;
+      }
+    }
+  }
+
+.container {
+  padding-top: 50px;
+  height: 100%;
+  background-color: #EEEEEE;
+  display: flex;
+
+  .side {
+
+    .mypage-nav {
+      .mypage-nav-list {
+        font-size: 14px;
+        .nav-list {
+          margin-bottom: 1px;
+          background-color: white;
+          height: 40px;
+          padding: 10px 0px 10px 10px;
+          text-decoration: none;
+          color: black;
+        }
+      }
+      .mypage-nav-head {
+        margin-top: 30px;
+        margin-bottom: 3px;
+        font-weight: bold;
+      }
+    }
+  }
+
+}

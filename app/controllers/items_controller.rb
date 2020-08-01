@@ -1,11 +1,23 @@
 class ItemsController < ApplicationController
   def index
   end
+  
+  def show
+  end
+
+  def show_itemlist
+  end
 
   def new
   end
 
-  def show
+  def card_new
+  end
+
+  def card_add
+  end
+
+  def card_done
   end
 
   def show_itemlist
@@ -15,6 +27,12 @@ class ItemsController < ApplicationController
   end
 
   def done
+  end
+
+  def my_page_logout
+  end
+
+  def my_page
   end
 
 end

@@ -1,0 +1,18 @@
+= render "header"
+.cardmain
+  .cardheader
+    支払い方法
+  .cardinner
+    .cardinner__title
+      クレジットカード一覧
+    %ul.cardinner__list
+      %li.cardinner__list__cardIcon
+        -# =image_tag "icon/jcb.svg"
+      %li.cardinner__list__cardNum
+        ************0000
+      %li.cardinner__list__cardExp
+        01/01
+
+      = link_to '削除する', card_add_items_path, class: 'cardinner__list__removeBtn'
+= render "nav-list"
+= render "footer"

@@ -2,8 +2,9 @@
   margin: 0;
   width: 700px;
   background-color: #fff;
-  border: 2px solid gray;
-  margin: 0 auto;
+  margin: 30px 0 0 450px;
+  position: absolute;
+  
   
   .cardheader{
     font-size: 24px;
@@ -82,12 +83,10 @@
 }
 
 .newcardmain{
-  margin: 0;
   width: 700px;
   background-color: #fff;
-  border: 2px solid gray;
-  margin: 0 auto;
-  
+  margin: 30px 0 0 450px;
+  position: absolute;
   &__title{
     font-size: 24px;
     padding: 8px 24px;

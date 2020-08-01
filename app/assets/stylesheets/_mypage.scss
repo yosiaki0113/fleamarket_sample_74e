@@ -1,49 +1,14 @@
 * {
   box-sizing: border-box;
 }
-
-.wrapper {
-  width: 100%;
-}
-
-.container {
-  padding-top: 50px;
-  height: 100%;
-  background-color: #EEEEEE;
-  display: flex;
-
-  .side {
-    width: 300px;
-    height: 1200px;
-    margin: 0px 10px 10px 150px;
-
-    .mypage-nav {
-      .mypage-nav-list {
-        font-size: 14px;
-        .nav-list {
-          margin-bottom: 1px;
-          background-color: white;
-          height: 40px;
-          padding: 10px 0px 10px 10px;
-          text-decoration: none;
-          color: black;
-        }
-      }
-      .mypage-nav-head {
-        margin-top: 30px;
-        margin-bottom: 3px;
-        font-weight: bold;
-      }
-    }
-  }
-
-  .content {
+.content {
   width: calc(100% - 600px);
-  margin: 0px 150px 10px 50px;
+  margin: 30px 150px 10px 450px;
+  position: absolute;
     .mypage-user-icon {
       background-image: url("mypage.jpeg");
       height: 200px;
-      padding: 25px 0px 0px 250px;
+      padding: 25px 0px 0px 340px;
       .profile-bar {
         position: absolute;
         .profile-icon {
@@ -160,4 +125,33 @@
       }
     }
   }
+
+.container {
+  padding-top: 50px;
+  height: 100%;
+  background-color: #EEEEEE;
+  display: flex;
+
+  .side {
+
+    .mypage-nav {
+      .mypage-nav-list {
+        font-size: 14px;
+        .nav-list {
+          margin-bottom: 1px;
+          background-color: white;
+          height: 40px;
+          padding: 10px 0px 10px 10px;
+          text-decoration: none;
+          color: black;
+        }
+      }
+      .mypage-nav-head {
+        margin-top: 30px;
+        margin-bottom: 3px;
+        font-weight: bold;
+      }
+    }
+  }
+
 }

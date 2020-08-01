@@ -29,4 +29,10 @@ class ItemsController < ApplicationController
   def done
   end
 
+  def my_page_logout
+  end
+
+  def my_page
+  end
+
 end

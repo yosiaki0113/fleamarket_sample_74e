@@ -1,0 +1,51 @@
+= render "header"
+.content
+  %section.mypage-user-icon
+    %a.profile-bar
+      %figure.profile-icon
+      %h2.profile-name
+        FURIMA
+      .profile-number
+        .evaluation
+          評価
+          %span.bold
+            0
+        .items
+          出品数
+          %span.bold
+            0
+  %section.mypage-tab-container-notification-todo
+    .news
+      ニュース
+    .tab-content
+      %ul.mypage-tab-notification
+        %li.mypage-item-link
+          .item-link-img
+          .item-link-right
+            .item-link-text
+              メッセージ
+            .item-link-time
+              .time-icon
+              .time-text
+                0時間前
+        %li.mypage-item-link
+          .item-link-img
+          .item-link-right
+            .item-link-text
+              メッセージ
+            .item-link-time
+              .time-icon
+              .time-text
+                0時間前
+  %section.mypage-tab-container
+    %h2.mypage-tab-head
+      購入した商品
+    %ul.mypage-tabs-lower
+      %li.during-trading
+        取引中
+      %li.past-trading
+        過去の取引
+    .tab-content
+      取引中の商品がありません
+= render "nav-list"
+= render "footer"

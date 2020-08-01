@@ -1,0 +1,43 @@
+.newcardmain
+  .newcardmain__title
+    クレジットカード情報入力
+  = form_with class:'signup-main' do |f|
+    .signup-main__content
+      .signup-main__content__cardNum
+        %label カード番号
+        %span.signup-main__content__require 必須
+        %br
+        %input.signup-main__content__cardNum__input{ type: 'text', placeholder: '半角数字のみ', maxlength: '19' }
+        %ul.signup-main__content__cardNum__card-list
+          %li
+            = image_tag '//pcweb-assets.mercdn.net/assets/img/card/visa.svg?2246739708', width: '49', height: '20' 
+          %li
+            = image_tag '//pcweb-assets.mercdn.net/assets/img/card/master-card.svg?2246739708', width: '34', height: '20'
+          %li
+            = image_tag '//pcweb-assets.mercdn.net/assets/img/card/saison-card.svg?2246739708', width: '30', height: '20'
+          %li
+            = image_tag '//pcweb-assets.mercdn.net/assets/img/card/jcb.svg?2246739708', width: '32', height: '20'
+          %li
+            = image_tag '//pcweb-assets.mercdn.net/assets/img/card/american_express.svg?2246739708', width: '21', height: '20'
+          %li
+            = image_tag '//pcweb-assets.mercdn.net/assets/img/card/dinersclub.svg?2246739708', width: '32', height: '20'
+          %li
+            = image_tag '//pcweb-assets.mercdn.net/assets/img/card/discover.svg?2246739708', width: '32', height: '20'
+      .signup-main__content__expire
+        %label 有効期限
+        %span.signup-main__content__require 必須
+        %br
+        .signup-main__content__expire__list
+          = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'signup-main__content__expire__list__select'
+          %span.month-year 月
+        .signup-main__content__expire__list
+          = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'signup-main__content__expire__list__select'
+          %span.month-year 年
+      .signup-main__content__seqcode
+        %label セキュリティコード
+        %span.signup-main__content__require 必須
+        %br
+        %input.signup-main__content__seqcode__input{ type: 'text',  placeholder: 'カード背面4桁もしくは3桁の番号' }
+      .signup-main__content__addBtn
+        = link_to card_done_items_path do
+          追加する

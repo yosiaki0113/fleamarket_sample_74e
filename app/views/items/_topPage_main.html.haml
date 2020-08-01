@@ -8,9 +8,9 @@
         FURIMAはだれでもかんたんに出品・購入できる<br>
         フリマアプリです
       .mainVisual__content__icon
-        = link_to '#',class: 'Btn' do
+        = link_to my_page_items_path, class: 'Btn' do
           = image_tag "logo/app-store.svg",class:'mainVisual__content__icon__aBtn'
-        = link_to '#',class: 'Btn' do
+        = link_to card_add_items_path,class: 'Btn' do
           = image_tag "logo/google-play.svg",class:'mainVisual__content__icon__gBtn'
 
   .topIntroduction
@@ -125,6 +125,6 @@
 
 
                   
-  = link_to "#",class:"exhibitionBtn" do
+  = link_to new_items_path, class:"exhibitionBtn" do
     %span.exhibitionBtn__text 出品する
     = image_tag "icon/icon_camera.png",class:"exhibitionBtn__icon"

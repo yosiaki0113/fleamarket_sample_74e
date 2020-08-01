@@ -1,5 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
+  layout 'sub_header_footer'
+
   def new
     @user = User.new
     @user.build_profile

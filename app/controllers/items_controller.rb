@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    render layout: 'sub_header_footer'
   end
 
   def card_new
@@ -24,9 +25,11 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    render layout: 'sub_header_footer'
   end
 
   def done
+    render layout: 'sub_header_footer'
   end
 
   def my_page_logout

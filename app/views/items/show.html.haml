@@ -1,4 +1,3 @@
-= render "header"
 .item-main
   .main-show
     .contentl-left
@@ -85,6 +84,8 @@
                   %i
                     =icon('fa', 'comment')
                   %span コメントする
+        .item-box__body__purchase
+          =  link_to "この商品を購入する", purchase_items_path, class: 'item-box__body__purchase--btn'
         %ul.links
           %li.link__prev
             = link_to "#", class: "prev" do
@@ -120,4 +121,3 @@
   %span.exhibitionBtn__text 出品する
   = image_tag "icon/icon_camera.png",class:"exhibitionBtn__icon"
 = render "appbanner"
-= render "footer"

@@ -203,6 +203,24 @@
               }
             }
             }
+      &__purchase {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        &--btn {
+          display: block;
+          height: 60px;
+          width: 500px;
+          border-radius: 100px;
+          background-color: red;
+          margin: 0 auto;
+          text-align: center;
+          text-decoration: none;
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 60px;
+        }
+      }
           }
         }
       ul {

@@ -1,0 +1,123 @@
+= render "header"
+.item-main
+  .main-show
+    .contentl-left
+      .content-right
+        .content-top
+          .item-box
+            .item-box__name
+              product3
+              .item-box__body
+                %ul.item-box__body__main
+                  %li
+                    = link_to '/' do
+                      = image_tag "/assets/pict/item-003.png",class:"item-box__body__main", size: '560x346'
+                %ul.item-box__body__main__sub
+                  %li
+                    = link_to '/' do
+                      = image_tag "/assets/pict/item-003.png",class:"item-box__body__main", size: '147x87'
+                  %li
+                    = link_to '/' do
+                      = image_tag "/assets/pict/item-002.jpg",class:"item-box__body__main", size: '147x87'
+                  %li
+                    = link_to '/' do
+                      = image_tag "/assets/pict/item-001.jpg",class:"item-box__body__main", size: '147x87'
+            .item-box__body__price
+              %span ¥30000
+              .item-box__body__price__pricedetail
+                %span (税込)
+                %span 送料込み
+            .item-box__body__price__detail
+              親譲りの無鉄砲で子供の時から損ばかりしている。小学校にいる時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+            .item-box__body__price__detail__table
+              %table
+                %tbody
+                  %tr
+                    %th 出品者
+                    %td hoge
+                  %tr
+                    %th カテゴリー
+                    %td
+                      = link_to 'ベビー・キッズ','#'
+                      %br= link_to 'ベビー服(男の子用)~95cm','#'
+                      = link_to 'アウター','#'
+                  %tr
+                    %th ブランド
+                    %td
+                  %tr
+                    %th 商品のサイズ
+                    %td
+                  %tr
+                    %th 商品の状態
+                    %td 未使用に近い
+                  %tr
+                    %th 配送料の負担
+                    %td 送料込み(出品者負担)
+                  %tr
+                    %th 発送元の地域
+                    %td
+                      = link_to '岩手県','#'
+                  %tr
+                    %th 発送日の目安
+                    %td 4-7日で発送
+            .item-box__body__price__detail__optionalares
+              %ul
+                %li.item-box__body__price__detail__optionalares__likebtn
+                  %i
+                    =icon('fa', 'star')
+                    お気に入り
+                    0
+              %ul.optinal
+                %li.optinalbtn
+                  = link_to '#', class: "#" do
+                    %i
+                      =icon('fa', 'flag')
+                      不適切な商品の報告
+          .item-box__body__comments
+            %ul
+            .form
+              = form_for "#" , class: "comment-body" do |f|
+                =f.text_field :comment, class: 'comment-body'
+                %p.form__noticemsg
+                  相手のことを考丁寧なコメントを心がけましょう。
+                  %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                .form__btn
+                  %i
+                    =icon('fa', 'comment')
+                  %span コメントする
+        %ul.links
+          %li.link__prev
+            = link_to "#", class: "prev" do
+              %i.fas.fa-chevron-left
+              %span<>
+                前の商品
+          %li.link__next
+            = link_to "#", class: "next" do
+              次の商品
+              %sapn<>
+              %i.fas.fa-chevron-right
+        .relateditems
+          = link_to "#", class: "#" do
+            ベビー・キッズをもっとみる
+          .relateditems__itemlists
+            .relateditems__itemlists__itemlist
+              = link_to '#' do
+                = image_tag "/assets/pict/item-003.png", class:"relateditems__itemlists__itemlist__img"
+                .relateditems__itemlists__itemlist__body
+                  .relateditems__itemlists__itemlist__body__name
+                    さば
+                    .relateditems__itemlists__itemlist__body__name__details
+                      %ul
+                        %il 500円
+                        %il 
+                          %i
+                            =icon('fa', 'star')
+                            0
+                        %p (税込み)
+
+
+= link_to "#",class:"exhibitionBtn" do
+  %span.exhibitionBtn__text 出品する
+  = image_tag "icon/icon_camera.png",class:"exhibitionBtn__icon"
+= render "appbanner"
+= render "footer"

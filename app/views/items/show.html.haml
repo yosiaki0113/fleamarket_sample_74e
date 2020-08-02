@@ -10,17 +10,17 @@
                 %ul.item-box__body__main
                   %li
                     = link_to '/' do
-                      = image_tag "/assets/pict/item-003.png",class:"item-box__body__main", size: '560x346'
+                      = image_tag asset_path("pict/item-003.png"),class:"item-box__body__main", size: '560x346'
                 %ul.item-box__body__main__sub
                   %li
                     = link_to '/' do
-                      = image_tag "/assets/pict/item-003.png",class:"item-box__body__main", size: '147x87'
+                      = image_tag asset_path("pict/item-003.png"),class:"item-box__body__main", size: '147x87'
                   %li
                     = link_to '/' do
-                      = image_tag "/assets/pict/item-002.jpg",class:"item-box__body__main", size: '147x87'
+                      = image_tag asset_path("pict/item-002.jpg"),class:"item-box__body__main", size: '147x87'
                   %li
                     = link_to '/' do
-                      = image_tag "/assets/pict/item-001.jpg",class:"item-box__body__main", size: '147x87'
+                      = image_tag asset_path("pict/item-001.jpg"),class:"item-box__body__main", size: '147x87'
             .item-box__body__price
               %span ¥30000
               .item-box__body__price__pricedetail
@@ -103,7 +103,7 @@
           .relateditems__itemlists
             .relateditems__itemlists__itemlist
               = link_to '#' do
-                = image_tag "/assets/pict/item-003.png", class:"relateditems__itemlists__itemlist__img"
+                = image_tag asset_path("pict/item-003.png"), class:"relateditems__itemlists__itemlist__img"
                 .relateditems__itemlists__itemlist__body
                   .relateditems__itemlists__itemlist__body__name
                     さば
@@ -119,5 +119,5 @@
 
 = link_to "#",class:"exhibitionBtn" do
   %span.exhibitionBtn__text 出品する
-  = image_tag "icon/icon_camera.png",class:"exhibitionBtn__icon"
+  = image_tag asset_path("icon/icon_camera.png"),class:"exhibitionBtn__icon"
 = render "appbanner"

@@ -1,0 +1,162 @@
+.sell
+  %main
+    %section.sell-container
+      = form_with model: @item do |f|
+        .sell-container__content
+          .sell-title
+            %h3.sell-title__text
+              出品画像
+              %span.sell-title__require
+                必須
+          .sell-container__content__max-sheet 最大10枚までアップロードできます
+          .sell-container__content__upload
+            .sell-container__content__upload__items
+              .sell-container__content__upload__items__box
+                %ul#output-box
+                  %div#image-input{tabindex:"0"}
+                    = f.label :images, for: "item_images0", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 } do 
+                      = f.file_field :images, multiple: true, class: "sell-container__content__upload__items__box__input", id: "item_images0", style: 'display: none;'
+                      %pre
+                        %i.fas.fa-camera.fa-lg
+                        ドラッグアンドドロップ
+                        またはクリックしてファイルをアップロード
+        .sell-container__content
+          .sell-title
+            %h3.sell-title__text
+              商品名
+              %span.sell-title__require
+                必須
+          = f.text_field :name, {class:'sell-container__content__name', required: "required", placeholder: '40文字まで'}
+
+          .sell-title
+            %h3.sell-title__text
+              商品の説明
+              %span.sell-title__require
+                必須
+          = f.text_area :text,{class: 'sell-container__content__description', required: "required", rows: '7', maxlength: '1000', placeholder: "商品の説明(必須　1,000文字以内)(色、素材、重さ、定価、注意点など)"}
+          .sell-container__content__word-count
+            %span#word-count
+              0
+            &#47;1000
+        .sell-container__content
+          %h3.sell-sub-head 商品の詳細
+          .sell-container__content__details
+            .sell-title
+              %h3.sell-title__text
+                カテゴリー
+                %span.sell-title__require
+                  必須
+            .sell-collection_select
+              = f.label :category_id, {class: 'sell-collection_select__label'} do
+                %select.sell-collection_select__input
+                  %option 選択してください
+                  %option{value: 1} レディース
+                  %option{value: 2} メンズ
+                  %option{value: 3} ベビー・キッズ
+                  %option{value: 4} インテリア・住まい・小物
+                  %option{value: 5} 本・音楽・ゲーム
+                  %option{value: 6} おもちゃ・ホビー・グッズ
+                  %option{value: 7} コスメ・香水・美容
+                  %option{value: 8} 家電・スマホ・カメラ
+                  %option{value: 9} スポーツ・レジャー
+                  %option{value: 10} ハンドメイド
+                  %option{value: 11} チケット
+                  %option{value: 12} 自動車・オートバイ
+                  %option{value: 13} その他
+                %i.fas.fa-chevron-down
+            .sell-title
+              %h3.sell-title__text
+                ブランド
+                %span.sell-title__require-a
+                  任意
+            .sell-collection_select
+              =f.text_field :brand,class:"sell-collection_select__brand",placeholder: "例)シャネル"
+            .sell-title
+              %h3.sell-title__text
+                商品の状態
+                %span.sell-title__require
+                  必須
+            .sell-collection_select
+              = f.label :condition_id, {class: 'sell-collection_select__label'} do
+                %select.sell-collection_select__input
+                  %option 選択してください
+                  %option{value: 1} 新品、未使用
+                  %option{value: 2} 未使用に近い
+                  %option{value: 3} 目立った傷や汚れなし
+                  %option{value: 4} やや傷や汚れあり
+                  %option{value: 5} 傷や汚れあり
+                  %option{value: 6} 全体的に状態が悪い
+                %i.fas.fa-chevron-down
+        .sell-container__content
+          %h3.sell-sub-head
+            %p 配送について
+            = link_to '',target: '_blank',class: 'sell-sub-head__guides-link' do
+              %i.far.fa-question-circle
+          .sell-container__content__delivery
+            .sell-title
+              %h3.sell-title__text
+                配送料の負担
+                %span.sell-title__require
+                  必須
+            .sell-collection_select
+              = f.label :deliverycost_id, {class: 'sell-collection_select__label'} do
+                %select.sell-collection_select__input
+                  %option 選択してください
+                  %option{value: 1} 送料込み(出品者負担)
+                  %option{value: 2} 着払い(購入者負担)
+                %i.fas.fa-chevron-down
+
+            .sell-title
+              %h3.sell-title__text
+                発送元の地域
+                %span.sell-title__require
+                  必須
+            .sell-collection_select
+              = f.label :pref_id, class: 'sell-collection_select__label' do
+                %select.sell-collection_select__input
+                  %option 選択してください
+                /active_hashを使用した実装を後日行います
+                %i.fas.fa-chevron-down
+
+            .sell-title
+              %h3.sell-title__text
+                発送までの日数
+                %span.sell-title__require
+                  必須
+            .sell-collection_select
+              = f.label :delivery_days_id, class: 'sell-collection_select__label' do
+                %select.sell-collection_select__input
+                  %option 選択してください
+                  %option{value: 1} 1~2日で発送
+                  %option{value: 2} 2~3日で発送
+                  %option{value: 3} 4~7日で発送
+                %i.fas.fa-chevron-down
+
+        .sell-container__content
+          %h3.sell-sub-head
+            %p 販売価格(¥300〜9,999,999)
+            = link_to '',target: '_blank', class: 'sell-sub-head__guides-link' do
+              %i.far.fa-question-circle
+          .sell-container__content__price
+            .sell-title
+              %h3.sell-title__text
+                販売価格
+                %span.sell-title__require
+                  必須
+            .sell-container__content__price__form
+              = f.label :price, class: 'sell-container__content__price__form__label' do
+                ¥
+                = f.number_field :price, {placeholder: '0', value: '', autocomplete:"off", class: 'sell-container__content__price__form__box', required: "required"}
+
+          .sell-container__content__commission
+            .sell-container__content__commission__left
+              販売手数料 （10%）
+            .sell-container__content__commission__right ー
+          .sell-container__content__profit
+            .sell-container__content__profit__left
+              販売利益
+            .sell-container__content__profit__right ー
+
+          .submit-btn
+            = f.submit '出品する', class: 'submit-btn__sell-btn'
+            = link_to 'もどる', root_path, class: 'submit-btn__return-btn'

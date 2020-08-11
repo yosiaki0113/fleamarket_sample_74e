@@ -1,0 +1,13 @@
+.category-box
+  %ul.parent
+    - @parents.each do |parent|
+      %li.parent-category
+        = parent.name
+        %ul.child
+          - parent.children.each do |child|
+            %li.child-category
+              = child.name
+              %ul.grandchild
+                - child.children.each do |grandchild|
+                  %li.grandchild-category
+                    = grandchild.name

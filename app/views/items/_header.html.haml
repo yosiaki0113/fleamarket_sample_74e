@@ -14,19 +14,28 @@
     .header-nav
       %ul.header-nav__left-nav
         %li
-          = link_to show_itemlist_items_path,class:'header-nav__left-nav__navbtn' do
-            = image_tag asset_path("icon/icon_category.png"),class:"header-nav__left-nav__navbtn__icon"
-            .header-nav__left-nav__navbtn__text
+          = link_to show_itemlist_items_path,class:'header-nav__left-nav__category' do
+            = image_tag asset_path("icon/icon_category.png"),class:"header-nav__left-nav__category__icon"
+            .header-nav__left-nav__category__text
               カテゴリー
+              .categoryBox
+                = render 'category'
+
 
         %li
-          = link_to show_itemlist_items_path,class:'header-nav__left-nav__navbtn' do
-            = image_tag asset_path("icon/icon_brand.png"),class:"header-nav__left-nav__navbtn__icon"
-            .header-nav__left-nav__navbtn__text
+          = link_to show_itemlist_items_path,class:'header-nav__left-nav__brand' do
+            = image_tag asset_path("icon/icon_brand.png"),class:"header-nav__left-nav__brand__icon"
+            .header-nav__left-nav__brand__text
               ブランド
 
       %ul.header-nav__right-nav
-        %li
-          = link_to 'ログイン', new_user_session_path,class:'header-nav__right-nav__navbtn-in'
-        %li
-          = link_to '新規会員登録', new_user_registration_path,class:'header-nav__right-nav__navbtn-up'
+        -if user_signed_in?
+          %li
+            = link_to 'マイページ', my_page_items_path,class:'header-nav__right-nav__navbtn-my'
+          %li
+            = link_to 'ログアウト', destroy_user_session_path,class:'header-nav__right-nav__navbtn-out', method: :delete
+        -else
+          %li
+            = link_to 'ログイン', new_user_session_path,class:'header-nav__right-nav__navbtn-in'
+          %li
+            = link_to '新規会員登録', new_user_registration_path,class:'header-nav__right-nav__navbtn-up'

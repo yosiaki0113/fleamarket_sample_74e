@@ -1,7 +1,9 @@
 .header{
   padding: 0 60px;
   background-color: #fff;
-
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 0 4px gray;
   &__inner{
     max-width: 1040px;
     width: calc(100%);
@@ -10,7 +12,6 @@
     padding: 15px 0 0;
     
     .header-top{
-      position: relative;
       display: flex;
       align-items: center;
       &__icon{
@@ -64,7 +65,7 @@
 
       &__left-nav{
         display: flex;
-        &__navbtn{
+        &__category{
           text-decoration: none;
           color: #333;
           line-height: 32px;
@@ -75,11 +76,30 @@
             height: 16px;
             margin: auto 5px;
           }
+          &:hover {
+            color: #ffb340;
+            font-weight: bold;
+          }
+        }      
+
+        &__brand{
+          text-decoration: none;
+          color: #333;
+          line-height: 32px;
+          padding-right: 30px;
+          font-size: 14px;
+          display: flex;
+          &__icon{
+            height: 16px;
+            margin: auto 5px;
+          }
+          &:hover {
+            color: #ffb340;
+            font-weight: bold;
+          }
         }
-        &__navbtn:hover {
-          color: #ffb340;
-          font-weight: bold;
-        }
+
+
       }
 
       &__right-nav{
@@ -122,7 +142,38 @@
             background-color: red;
             color: white;
           }
+        }
+        &__navbtn-my{
+          text-decoration: none;
+          color: white;
+          line-height: 32px;
+          font-size: 14px;
+          transition: all 0.2s;
+          padding: 9px 8px;
+          background-color: red;
+          border: solid 1px red;
+          border-radius: 0.4em;
+          transition: all 0.4s;
+          &:hover{
+            border-radius: 1.5em;
+          }
         } 
+        &__navbtn-out{
+          text-decoration: none;
+          color: #3CCACE;
+          line-height: 32px;
+          font-size: 14px;
+          transition: all 0.2s;
+          padding: 9px 5px;
+          background-color: white;
+          border: solid 1px #3CCACE;
+          border-radius: 0.4em;
+          transition: all 0.4s;
+          &:hover{
+            background-color: #3CCACE;
+            color: white;
+          }
+        }  
       }
     }
   }

@@ -98,6 +98,10 @@
     position: relative;
     margin-top: 5px;
     width: 100%;
+    &:last-of-type{
+      margin-bottom: 16px;
+    }
+
     .fas.fa-chevron-down{
       box-sizing: border-box;
       pointer-events: none;

@@ -19,7 +19,7 @@
             .header-nav__left-nav__category__text
               カテゴリー
               .categoryBox
-                = render 'category'
+                = render 'items/category'
 
 
         %li
@@ -31,7 +31,7 @@
       %ul.header-nav__right-nav
         -if user_signed_in?
           %li
-            = link_to 'マイページ', my_page_items_path,class:'header-nav__right-nav__navbtn-my'
+            = link_to 'マイページ', user_path(current_user),class:'header-nav__right-nav__navbtn-my'
           %li
             = link_to 'ログアウト', destroy_user_session_path,class:'header-nav__right-nav__navbtn-out', method: :delete
         -else

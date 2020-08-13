@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :prefectures, null:false
       t.string :postage_type, null:false
       t.string :days_until_shipping, null:false
-      t.string :trading_status
+      t.string :trading_status, null:false, default: "出品中"
       t.timestamp :purchase_date
       t.timestamp :close_date
       t.integer :seller_id, null:false

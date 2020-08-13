@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_132722) do
     t.string "prefectures", null: false
     t.string "postage_type", null: false
     t.string "days_until_shipping", null: false
-    t.string "trading_status"
+    t.string "trading_status", default: "出品中", null: false
     t.timestamp "purchase_date"
     t.timestamp "close_date"
     t.integer "seller_id", null: false

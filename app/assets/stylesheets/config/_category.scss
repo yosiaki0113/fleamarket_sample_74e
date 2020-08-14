@@ -1,0 +1,92 @@
+  .parent,.child,.grandchild {
+    display: none;
+  }
+  
+  .header-nav__left-nav__category{
+    position: relative;
+    z-index: 100;
+  
+    .categoryBox {
+      position: absolute;
+      margin-left: -26px;
+
+      .parent{
+        box-shadow: 0 2px 2px rgb(214, 209, 209);
+        background-color: white;
+        border-radius: 0.3em;
+        line-height: 38px;
+      }
+      .parent-category{
+        padding-left: 10px;
+        font-size: 14px;
+        color: gray;
+        border-bottom: 1px solid rgb(240, 237, 237);
+        font-weight: lighter;
+
+        &:hover {
+          &:hover {
+            background-color: #3CCACE;
+            color: white;
+          }
+        }
+      }
+      .child,.grandchild {
+        box-shadow: 0 2px 2px rgb(214, 209, 209);
+        background-color: white;
+        border-radius: 0.5em;
+        line-height: 30px;
+      }
+      .child-category,.grandchild-category {
+        padding-left: 10px;
+        font-size: 12px;
+        color: gray;
+        border-bottom: 1px solid rgb(240, 237, 237);
+        font-weight: lighter;
+
+        &:hover {
+          &:hover {
+            background-color: lighten($color: #3CCACE, $amount: 40%);
+
+          }
+        }
+      }
+    }
+  
+    &:hover {
+      .parent {
+        display: block;
+  
+        .parent-category {
+          width: 260px;
+          transition: all 0.2s;
+  
+          &:hover {
+            .child {
+              width: 260px;
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 260px;
+              min-height: 100%;
+  
+              .child-category {
+                display: block;
+  
+                &:hover {
+  
+                  .grandchild {
+                    width: 260px;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    min-height: 100%;
+                    left: 260px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

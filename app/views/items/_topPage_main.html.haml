@@ -123,8 +123,4 @@
         = render partial:'itemlist' ,locals: {name: "さば", img: asset_path("pict/item-003.png"),price: "500", like: "0"}
         = render partial:'itemlist' ,locals: {name: "フルーツセット", img: asset_path("pict/item-004.jpg"),price: "10000", like: "0"}
 
-
-                  
-  = link_to new_items_path, class:"exhibitionBtn" do
-    %span.exhibitionBtn__text 出品する
-    = image_tag asset_path("icon/icon_camera.png"),class:"exhibitionBtn__icon"
+= render 'exhibitionBtn'

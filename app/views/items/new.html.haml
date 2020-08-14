@@ -46,23 +46,9 @@
                 カテゴリー
                 %span.sell-title__require
                   必須
-            .sell-collection_select
-              = f.label :category_id, {class: 'sell-collection_select__label'} do
-                %select.sell-collection_select__input
-                  %option 選択してください
-                  %option{value: 1} レディース
-                  %option{value: 2} メンズ
-                  %option{value: 3} ベビー・キッズ
-                  %option{value: 4} インテリア・住まい・小物
-                  %option{value: 5} 本・音楽・ゲーム
-                  %option{value: 6} おもちゃ・ホビー・グッズ
-                  %option{value: 7} コスメ・香水・美容
-                  %option{value: 8} 家電・スマホ・カメラ
-                  %option{value: 9} スポーツ・レジャー
-                  %option{value: 10} ハンドメイド
-                  %option{value: 11} チケット
-                  %option{value: 12} 自動車・オートバイ
-                  %option{value: 13} その他
+            .sell-collection_select-c
+              .sell-collection_select-c__label
+                = f.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択して下さい'}, {class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
                 %i.fas.fa-chevron-down
             .sell-title
               %h3.sell-title__text

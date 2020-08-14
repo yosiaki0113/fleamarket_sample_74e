@@ -1,4 +1,3 @@
-= render "header"
 .itemlistmain
   .itemlistmain__showbox
     .itemlistmain__showbox__content
@@ -41,9 +40,5 @@
 
 
   
-  = link_to "#",class:"exhibitionBtn" do
-    %span.exhibitionBtn__text 出品する
-    = image_tag asset_path("icon/icon_camera.png"),class:"exhibitionBtn__icon"
-
+= render 'exhibitionBtn'
 = render "appbanner"
-= render "footer"

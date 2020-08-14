@@ -2,8 +2,14 @@ class ApplicationController < ActionController::Base
 
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_category
 
   private
+
+  def set_category
+    @parents = Category.roots
+  end
+
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|

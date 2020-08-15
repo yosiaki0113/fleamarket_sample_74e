@@ -4,4 +4,6 @@ class Item < ApplicationRecord
   belongs_to :brand
   belongs_to :category
   has_many :images, dependent: :destroy
+
+  mount_uploader :image, ImageUploader
 end

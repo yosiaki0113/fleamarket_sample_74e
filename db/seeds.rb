@@ -332,10 +332,10 @@ others_9.children.create([{name: "すべて"}])
 User.create!(
   [
     {
-      nickname:'アムロ', email:'test1@test.com', password: 'testtest'
+      nickname:'アムロ', email:'test1@test.com', password: 'test1111'
     },
     {
-      nickname:'シャア', email:'test2@test.com', password: 'testtest'
+      nickname:'シャア', email:'test2@test.com', password: 'test1111'
     }
   ]
 )

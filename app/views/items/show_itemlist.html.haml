@@ -32,13 +32,8 @@
           %li
             =link_to "その他", "#"
             
-      .itemlistmain__showbox__content__itemlists
-        = render partial:'itemlist' ,locals: {name: "メロン", img: asset_path("pict/item-001.jpg"),price: "1000", like: "2"}
-        = render partial:'itemlist' ,locals: {name: "ソーセージ", img: asset_path("pict/item-002.jpg"),price: "5000", like: "0"}
-        = render partial:'itemlist' ,locals: {name: "さば", img: asset_path("pict/item-003.png"),price: "500", like: "0"}
-        = render partial:'itemlist' ,locals: {name: "フルーツセット", img: asset_path("pict/item-004.jpg"),price: "10000", like: "0"}
+      %ul.itemlistmain__showbox__content__itemlists
+        = render 'itemlist'
 
-
-  
 = render 'exhibitionBtn'
 = render "appbanner"

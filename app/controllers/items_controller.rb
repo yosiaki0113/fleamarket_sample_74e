@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_items, only: [:index,:show_itemlist]
 
   
   def index
-    @items = Item.includes(:images).order(created_at: "DESC") #新規登録順で表示
   end
   
   def show
@@ -75,6 +75,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_items
+    @items = Item.includes(:images).order(created_at: "DESC") #新規登録順で表示
   end
 
 end

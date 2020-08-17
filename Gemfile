@@ -82,4 +82,6 @@ gem 'payjp' #クレカ実装に使用
 gem 'fog-aws' #AWS S3への画像アップロード
 gem 'bxslider-rails' #スライドショーの作成に使用
 gem 'active_hash' #商品配送方法の選択に使用
-
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'rails-i18n'

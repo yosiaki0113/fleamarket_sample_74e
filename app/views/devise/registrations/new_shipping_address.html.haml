@@ -6,7 +6,7 @@
         - @shipping_address.errors.full_messages.each do |message|
           %li.error__message= message
   .address
-    = form_for(:shipping_address, url: create_shipping_addresses_path, method: :post) do |f|
+    = form_for(@shipping_address, url: create_shipping_addresses_path, method: :post) do |f|
       .address__field
         = f.label :お名前　, class: "field--label"
         = f.label :必須, class: "field--must"

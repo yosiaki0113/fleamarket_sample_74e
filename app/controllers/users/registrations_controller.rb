@@ -20,14 +20,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_shipping_address
     @user = User.new(session["devise.regist_data"])
-    @shipping_address = Shipping_address.new(address_params)
+    @shipping_address = ShippingAddress.new(address_params)
     unless @shipping_address.valid?
       flash.now[alert] = @shipping_address.errors.full_messages
       render :new_shipping_address and return
     end
-    @user.shipping_address.build(@shipping_address.attributes)
+    @user.shipping_addresses.build(@shipping_address.attributes)
     @user.save!
-    sgin_in(:user, @user)
+    sign_in(:user, @user)
   end
 
   private

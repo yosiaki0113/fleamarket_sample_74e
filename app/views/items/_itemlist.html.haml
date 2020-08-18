@@ -1,15 +1,25 @@
-.itemlist
-  .pickupContainer__itemBox__lists__list
-    = link_to "#" do
-      = image_tag img, class:"itemlist__img"
+- @items.each do |item|
+  %li.itemlist
+    = link_to item_path(item.id) do
+      - if item.buyer_id != nil
+        .itemlist__sold
+          .itemlist__sold__text
+            S O L D
+      .itemlist__img
+        = item.images.first(1).each do |image|
+          = image_tag image.url.url
       .itemlist__body
         .itemlist__body__name
-          = name
+          = item.name
         .itemlist__body__details
           %ul
-            %il 
-              = price + "円"
-            %il 
+            %li
+              - if item.buyer_id != nil
+                .itemlist__body__details__sold
+                  S O L D
+              - else
+                = "¥#{item.price.to_s(:delimited)}"
+            %li
               =icon('fa', 'star', class: 'itemlist__body__details__likeicon')
-              = like
+              0
           %p (税込み)

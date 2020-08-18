@@ -28,3 +28,6 @@
 
 #.DS_Storeをpushしないようにする
 .DS_Store
+
+#出品画像をpushしないようにする
+public/uploads/*

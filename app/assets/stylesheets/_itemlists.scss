@@ -4,7 +4,8 @@
     padding: 40px;
     margin: 0 auto;
     &__content{
-      width: 700px;
+      width: 80%;
+      max-width: 1200px;
       margin: 0 auto;
       &__titlebox{
         background-color: #fff;
@@ -38,22 +39,44 @@
         }
       }
       &__itemlists{
-        margin: 30px auto;
+        max-width: 1180px;
+        padding: 0 10px;
+        margin: 26px auto 0;
+        display:flex;
+        justify-content:center;
+        flex-wrap: wrap;
+        li{
+          color: #f8f8f8;
+        }
         .itemlist{
           width: 220px;
-          display: inline-block;
-          margin-bottom: 8px;
-          box-shadow: 0 1px 1px rgb(214, 209, 209);
-          margin-left: 7px;
-          &:hover{
-            outline: solid 1px #3CCACE;
-            transition: box-shadow 0.5s ;
-            transition: opacity 1s ;
-            box-shadow: 0 0 8px darken($color: #3CCACE, $amount: 15%);
-            opacity: 0.75;
-            
+          display: block;
+          margin: 0 5px 10px;
+          outline: 1px solid #f8f8f8;
+          box-shadow: 1px 2px 2px rgb(194, 189, 189);
+          transition: all 0.3s ; 
+          &__sold{
+            margin-top: 60px;
+            text-align: center;
+            width: 220px;
+            position: absolute;
+            &__text{
+              width: 75%;
+              margin: 0 auto;
+              padding: 5px;
+              font-weight:bolder;
+              font-size:20px;
+              color:#fff;
+              background:#c00;
+              opacity: 0.85;  
+            }
           }
-
+  
+          &:hover{
+            opacity: 0.8;
+            outline: solid 1px #3CCACE;
+            box-shadow: 0 2px 8px darken($color: #3CCACE, $amount: 15%);
+          }
           a{
             background-color: #fff;
             display: inline-block;
@@ -64,6 +87,12 @@
             height: 150px;
             overflow: hidden;
             margin: 0;
+            img{
+              width: 100%;
+              height: 150px;
+              object-fit: cover;
+              background-color: white;
+            }
           }
           &__body{
             background-color: white;
@@ -71,17 +100,41 @@
             padding: 16px;
             &__name{
               overflow: hidden;
+              width: 180px;
               line-height: 1.5;
-              font-size: 16px;
+              font-size: 15px;
               text-align: left;
+              white-space: nowrap;
+              text-overflow: ellipsis;
             }
             &__details{
+              margin-top: 5px;
               font-size: 16px;
               ul{
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                li{
+                  color: #333;
+                }
+                li:first-of-type{
+                  color: red;
+                  font-weight: bold;
+                  .itemlist__body__details__sold{
+                    width: 100%;
+                    padding: 0 12px 0 5px;
+                    color: white;
+                    background-color: #c00;
+                    opacity: 0.85;
+                    border-top-right-radius : 1em;
+                    -webkit-border-top-right-radius: 1em;
+                    border-bottom-right-radius : 1em;
+                    -webkit-border-bottom-right-radius: 1em;
+                }
+  
+                }
               }
+
               p{
                 font-size: 10px;
                 text-align: left;
@@ -92,34 +145,5 @@
       }
     }
   }
-  .exhibitionBtn{
-    cursor: pointer;
-    width: 120px;
-    background: #3CCACE;
-    text-align: center;
-    border-radius: 4%;
-    bottom: 32px;
-    right: 32px;
-    position: fixed;
-    padding: 15px;
-    text-decoration: none;
-    transition: all 0.4s;
-    &:hover{
-      box-shadow:0 0 10px rgba(0,0,0,0.5);
-      background-color: darken($color: #3CCACE, $amount: 5%);
-   }
-  
-    &__text{
-      color: #fff;
-      display: block;
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-    &__icon{
-      width: 60%;
-      vertical-align: bottom;
-    }
-  }
-
 }
 

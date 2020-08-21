@@ -1,6 +1,6 @@
 .main
   %h2 会員情報入力
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = form_for(@user, url: user_registration_path) do |f|
     = render "devise/shared/error_messages", resource: resource
     .field
       = f.label :ニックネーム　, class: "field--label"
@@ -33,15 +33,14 @@
           = f.label :お名前　, class: "field--label"
           = f.label :必須, class: "field--must"
           %br/
-          = f.text_field :first_name, autofocus: true, autocomplete: "first_tname", placeholder: "田中", required: "true", class: "profile__field--form"
-          = f.text_field :family_name, autofocus: true, autocomplete: "family_name", placeholder: "太郎", required: "true", class: "profile__field--form"
+          = f.text_field :family_name, autofocus: true, autocomplete: "family_name", placeholder: "田中", required: "true", class: "profile__field--form"
+          = f.text_field :first_name, autofocus: true, autocomplete: "first_tname", placeholder: "太郎", required: "true", class: "profile__field--form"
         .profile__field
           = f.label :お名前（ふりがな）, class: "field--label"
           = f.label :必須, class: "field--must"
           %br/
-          = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "たなか", required: "true", class: "profile__field--form"
-          = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", placeholder: "たろう", required: "true", class: "profile__field--form"
-
+          = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana", placeholder: "たなか", required: "true", class: "profile__field--form"
+          = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "たろう", required: "true", class: "profile__field--form"
         .profile__field
           = f.label :生年月日　, class: "field--label"
           = f.label :必須, class: "field--must"
@@ -50,4 +49,4 @@
           = f.number_field :birth_month, autofocus: true, autocomplete: "birth_month", placeholder: "月", required: "true", class: "profile__field--form"
           = f.number_field :birth_day, autofocus: true, autocomplete: "birth_day", placeholder: "日", required: "true", class: "profile__field--form"
     .actions
-      = f.submit "次へ", class: "actions--btn", url: "new_shipping_address_registration_path"
+      = f.submit "次へ", class: "actions--btn"

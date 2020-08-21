@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    attributes: 
+      profile:
+        family_name: "名字"
+        first_name: "名前"
+        family_name_kana: "名字(ふりがな)"
+        first_name_kana: "名前(ふりがな)"
+        birth_year: "年"
+        birth_month: "月"
+        birth_day: "日"
+      shipping_address:
+        destination_first_name: "名前"
+        destination_family_name: "名字"
+        destination_first_name_kana: "名前(ふりがな)"
+        destination_family_name_kana: "名字(ふりがな)"
+        post_code: "郵便番号"
+        prefecture: "都道府県"
+        city: "市区町村"
+        house_number: "番地"
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}。"
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"

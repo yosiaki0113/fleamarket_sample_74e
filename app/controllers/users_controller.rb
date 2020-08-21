@@ -3,7 +3,11 @@ class UsersController < ApplicationController
     @products = Product.all
     end
   
-    def show
+  def show
   
-    end
+  end
+  
+  def destroy
+  end
+
 end

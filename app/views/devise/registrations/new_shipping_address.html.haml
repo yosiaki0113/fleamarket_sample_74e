@@ -1,7 +1,12 @@
 .main
   %h2 商品送付先入力
+  .error
+    -if @shipping_address.errors.any?
+      %ul
+        - @shipping_address.errors.full_messages.each do |message|
+          %li.error__message= message
   .address
-    = form_for(:shipping_address) do |f|
+    = form_for(@shipping_address, url: create_shipping_addresses_path, method: :post) do |f|
       .address__field
         = f.label :お名前　, class: "field--label"
         = f.label :必須, class: "field--must"
@@ -23,7 +28,7 @@
         = f.label :都道府県　, class: "field--label"
         = f.label :必須, class: "field--must"
         %br/
-        = f.text_field :prefectures, autofocus: true, autocomplete: "prefectures", placeholder: "例) 東京都", required: "true", class: "field--form"
+        = f.select :prefecture, ShippingAddress.prefectures.keys, {prompt: "選択してください", autofocus: true, autocomplete: "prefecture"}, class: "field--select" 
       .address__field
         = f.label :市区町村　, class: "field--label"
         = f.label :必須, class: "field--must"
@@ -41,8 +46,8 @@
         = f.text_field :building_name, autofocus: true, autocomplete: "building_name", placeholder: "例) 渋谷ビル", class: "field--form"
       .address__field
         = f.label :電話番号　, class: "field--label"
-        = f.label :必須, class: "field--must"
+        = f.label :任意, class: "field--any"
         %br/
-        = f.text_field :phone, autofocus: true, autocomplete: "phone", placeholder: "080-1234-5678", required: "true", class: "field--form"
+        = f.text_field :phone, autofocus: true, autocomplete: "phone", placeholder: "080-1234-5678", class: "field--form"
       .actions
         = f.submit "登録", class: "actions--btn", url: "#"

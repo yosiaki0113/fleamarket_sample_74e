@@ -13,22 +13,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
     end
-    session["devise.regist_data"] = {user: @user.attributes}
-    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    session["devise.regist_data"] = user_params
     @shipping_address = @user.shipping_addresses.build
     render :new_shipping_address
   end
 
   def create_shipping_address
-    @user = User.new(session["devise.regist_data"]["user"])
-    @shipping_address = Shipping_address.new(address_params)
+    @user = User.new(session["devise.regist_data"])
+    @shipping_address = ShippingAddress.new(address_params)
     unless @shipping_address.valid?
       flash.now[alert] = @shipping_address.errors.full_messages
-      render :new_profile and return
+      render :new_shipping_address and return
     end
-    @user.build_shipping_address(@shipping_address.attributes)
+    @user.shipping_addresses.build(@shipping_address.attributes)
     @user.save!
-    sgin_in(:user, @user)
+    sign_in(:user, @user)
   end
 
   private
@@ -38,7 +37,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:shipping_address).permit(:destination_first_name, :destination_family_name, :destination_first_name_kana, :destination_family_name_kana, :post_code, :prefectures, :city, :house_number, :building_name, :phone)
+    params.require(:shipping_address).permit(:destination_family_name, :destination_first_name, :destination_family_name_kana, :destination_first_name_kana, :post_code, :prefecture, :city, :house_number, :building_name, :phone)
   end
   
 end

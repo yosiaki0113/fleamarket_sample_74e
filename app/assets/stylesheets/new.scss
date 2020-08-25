@@ -12,7 +12,7 @@
     margin-left: 8px;
     font-size: 12px;
     padding: 0 4px;
-    background-color: #ff0211;
+    background-color: #3CCACE;
     color: #fff;
     border-radius: 2px;
     display: inline-block;
@@ -181,6 +181,9 @@
             justify-content: center;
             position: relative;
             border-width: 1px;
+            &__input{	
+              display: none;	
+              }
 
             #output-box{
               box-sizing: border-box;
@@ -200,6 +203,7 @@
                   margin:0 auto;
                   height: 118px;
                   background-color: #f5f5f5;
+                  background-color: white;
                   img{
                     box-sizing: border-box;
                     width: 100%;
@@ -208,15 +212,15 @@
                   }
                 }
                 &__button{
-                  border-top-width: 1px;
-                  border-top-color: #cccccc;
-                  border-top-style: solid;
+                  border-width: 1px;
+                  border-color: #cccccc;
+                  border-style: solid;
                   background-color: #f5f5f5;
                   justify-content: space-around;
                   display: flex;
                   align-items: center;
                   height: 32px;
-                  color: #0095ee;
+                  color: #3CCACE;
                 }
               }
 

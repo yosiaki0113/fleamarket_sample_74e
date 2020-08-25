@@ -35,6 +35,7 @@ class ItemsController < ApplicationController
       Brand.create(name: params[:item][:brand],item_id: @item.id)
       redirect_to root_path, notice: '商品を出品しました'
     else
+      @item.images.new
       flash.now[:notice] = '出品には必須項目が必要です'
       render :new,layout: 'sub_header_footer'
     end

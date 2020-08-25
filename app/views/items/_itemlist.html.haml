@@ -7,7 +7,7 @@
             S O L D
       .itemlist__img
         = item.images.first(1).each do |image|
-          = image_tag image.url.url
+          = image_tag(image.url.url)
       .itemlist__body
         .itemlist__body__name
           = item.name

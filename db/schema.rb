@@ -14,8 +14,10 @@ ActiveRecord::Schema.define(version: 2020_08_11_132722) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_brands_on_item_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -38,10 +40,10 @@ ActiveRecord::Schema.define(version: 2020_08_11_132722) do
     t.string "name", null: false
     t.text "text", null: false
     t.integer "price", null: false
-    t.string "condtion", null: false
-    t.string "prefectures", null: false
-    t.string "postage_type", null: false
-    t.string "days_until_shipping", null: false
+    t.integer "condtion_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "postage_type_id", null: false
+    t.integer "days_until_shipping_id", null: false
     t.string "trading_status", default: "出品中", null: false
     t.timestamp "purchase_date"
     t.timestamp "close_date"
@@ -100,6 +102,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_132722) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "brands", "items"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"

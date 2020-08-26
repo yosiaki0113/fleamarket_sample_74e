@@ -1,0 +1,22 @@
+- if @category.root?
+  - breadcrumb :parent_category
+- elsif @category.has_children?
+  - breadcrumb :child_category
+- else
+  - breadcrumb :grandchild_category
+= render "breadcrumbs"
+.itemlistmain
+  .itemlistmain__showbox
+    .itemlistmain__showbox__content
+      .itemlistmain__showbox__content__titlebox
+        .itemlistmain__showbox__content__titlebox__title
+          = "#{@category.name} の商品一覧"
+        %ul.itemlistmain__showbox__content__titlebox__sublists
+          - @category.children.each do |child|
+            %li.categories__titlebox__lists__parent
+              = link_to "#{child.name}", category_path(child)
+      -if @items        
+        %ul.itemlistmain__showbox__content__itemlists
+          = render "itemlist", items: @items
+= render 'items/exhibitionBtn'
+

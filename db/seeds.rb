@@ -328,224 +328,223 @@ others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
 
 
+if Rails.env.development? || Rails.env.test?
+  User.create!(
+    [
+      {
+        nickname:'アムロ', email:'test1@test.com', password: 'test1111'
+      },
+      {
+        nickname:'シャア', email:'test2@test.com', password: 'test1111'
+      }
+    ]
+  )
 
-User.create!(
-  [
-    {
-      nickname:'アムロ', email:'test1@test.com', password: 'test1111'
-    },
-    {
-      nickname:'シャア', email:'test2@test.com', password: 'test1111'
-    }
-  ]
-)
+  Brand.create!(
+    [
+      {
+        name:'自家製'
+      },
+      {
+        name:'夕張メロン'
+      }
+    ]
+  )
 
-Brand.create!(
-  [
-    {
-      name:'自家製'
-    },
-    {
-      name:'夕張メロン'
-    }
-  ]
-)
+  Item.create!(
+    [
+      {
+        name: 'メロン',
+        text: '美味しいよ！',
+        price: '1000',
+        condtion: '未使用',
+        prefectures: '神奈川県',
+        postage_type: '送料込み',
+        days_until_shipping: '1-2日で発送',
+        seller_id: '1',
+        buyer_id: '2',
+        category_id:'1288',
+        brand_id:'2',
+      },
+      {
+        name: 'ウインナー',
+        text: '酒のつまみに最適！！',
+        price: '5000',
+        condtion: '未使用',
+        prefectures: '東京都',
+        postage_type: '送料込み',
+        days_until_shipping: '3-4日で発送',
+        seller_id: '2',
+        buyer_id: '1',
+        category_id:'1291',
+        brand_id:'',
 
-Item.create!(
-  [
-    {
-      name: 'メロン',
-      text: '美味しいよ！',
-      price: '1000',
-      condtion: '未使用',
-      prefectures: '神奈川県',
-      postage_type: '送料込み',
-      days_until_shipping: '1-2日で発送',
-      seller_id: '1',
-      buyer_id: '2',
-      category_id:'1288',
-      brand_id:'2',
-    },
-    {
-      name: 'ウインナー',
-      text: '酒のつまみに最適！！',
-      price: '5000',
-      condtion: '未使用',
-      prefectures: '東京都',
-      postage_type: '送料込み',
-      days_until_shipping: '3-4日で発送',
-      seller_id: '2',
-      buyer_id: '1',
-      category_id:'1291',
-      brand_id:'',
+      },
+      {
+        name: 'さば',
+        text: 'ランチに最適！',
+        price: '500',
+        condtion: '未使用',
+        prefectures: '東京都',
+        postage_type: '送料込み',
+        days_until_shipping: '3-4日で発送',
+        seller_id: '1',
+        buyer_id: '',
+        category_id:'1290',
+        brand_id:'1',
 
-    },
-    {
-      name: 'さば',
-      text: 'ランチに最適！',
-      price: '500',
-      condtion: '未使用',
-      prefectures: '東京都',
-      postage_type: '送料込み',
-      days_until_shipping: '3-4日で発送',
-      seller_id: '1',
-      buyer_id: '',
-      category_id:'1290',
-      brand_id:'1',
+      },
+      {
+        name: 'フルーツセット',
+        text: 'プレゼント用に個装されています。',
+        price: '10000',
+        condtion: '未使用',
+        prefectures: '青森県',
+        postage_type: '送料込み',
+        days_until_shipping: '3-4日で発送',
+        seller_id: '1',
+        buyer_id: '2',
+        category_id:'1288',
+        brand_id:'2',
 
-    },
-    {
-      name: 'フルーツセット',
-      text: 'プレゼント用に個装されています。',
-      price: '10000',
-      condtion: '未使用',
-      prefectures: '青森県',
-      postage_type: '送料込み',
-      days_until_shipping: '3-4日で発送',
-      seller_id: '1',
-      buyer_id: '2',
-      category_id:'1288',
-      brand_id:'2',
+      }
 
-    }
+    ]
+  )
+  Item.create!(
+    [
+      {
+        name: 'メロン',
+        text: '美味しいよ！',
+        price: '1000',
+        condtion: '未使用',
+        prefectures: '神奈川県',
+        postage_type: '送料込み',
+        days_until_shipping: '1-2日で発送',
+        seller_id: '1',
+        buyer_id: '2',
+        category_id:'32',
+        brand_id:'2',
+      },
+      {
+        name: 'ソーセージgfdsfggdfsdffgfdsfgsdfgdfgsdf',
+        text: '酒のつまみに最適！！',
+        price: '5000',
+        condtion: '未使用',
+        prefectures: '東京都',
+        postage_type: '送料込み',
+        days_until_shipping: '3-4日で発送',
+        seller_id: '1',
+        buyer_id: '',
+        category_id:'32',
+        brand_id:'',
 
-  ]
-)
-Item.create!(
-  [
-    {
-      name: 'メロン',
-      text: '美味しいよ！',
-      price: '1000',
-      condtion: '未使用',
-      prefectures: '神奈川県',
-      postage_type: '送料込み',
-      days_until_shipping: '1-2日で発送',
-      seller_id: '1',
-      buyer_id: '2',
-      category_id:'32',
-      brand_id:'2',
-    },
-    {
-      name: 'ソーセージgfdsfggdfsdffgfdsfgsdfgdfgsdf',
-      text: '酒のつまみに最適！！',
-      price: '5000',
-      condtion: '未使用',
-      prefectures: '東京都',
-      postage_type: '送料込み',
-      days_until_shipping: '3-4日で発送',
-      seller_id: '1',
-      buyer_id: '',
-      category_id:'32',
-      brand_id:'',
+      },
+      {
+        name: 'さば',
+        text: 'ランチに最適！',
+        price: '500',
+        condtion: '未使用',
+        prefectures: '東京都',
+        postage_type: '送料込み',
+        days_until_shipping: '3-4日で発送',
+        seller_id: '1',
+        buyer_id: '',
+        category_id:'32',
+        brand_id:'1',
 
-    },
-    {
-      name: 'さば',
-      text: 'ランチに最適！',
-      price: '500',
-      condtion: '未使用',
-      prefectures: '東京都',
-      postage_type: '送料込み',
-      days_until_shipping: '3-4日で発送',
-      seller_id: '1',
-      buyer_id: '',
-      category_id:'32',
-      brand_id:'1',
+      },
+      {
+        name: 'フルーツセット',
+        text: 'プレゼント用に個装されています。',
+        price: '10000',
+        condtion: '未使用',
+        prefectures: '青森県',
+        postage_type: '送料込み',
+        days_until_shipping: '3-4日で発送',
+        seller_id: '2',
+        buyer_id: '',
+        category_id:'32',
+        brand_id:'2',
 
-    },
-    {
-      name: 'フルーツセット',
-      text: 'プレゼント用に個装されています。',
-      price: '10000',
-      condtion: '未使用',
-      prefectures: '青森県',
-      postage_type: '送料込み',
-      days_until_shipping: '3-4日で発送',
-      seller_id: '2',
-      buyer_id: '',
-      category_id:'32',
-      brand_id:'2',
+      }
 
-    }
+    ]
+  )
+  Item.create!(
+    [
+      {
+        name: 'メロン 賞味期限があと1日',
+        text: 'でも美味しいよ！',
+        price: '100',
+        condtion: '未使用',
+        prefectures: '神奈川県',
+        postage_type: '送料込み',
+        days_until_shipping: '1-2日で発送',
+        seller_id: '1',
+        buyer_id: '',
+        category_id:'470',
+        brand_id:'2',
+      },
+      {
+        name: 'ソーセージ',
+        text: '酒のつまみに最適！！',
+        price: '5800',
+        condtion: '未使用',
+        prefectures: '東京都',
+        postage_type: '送料込み',
+        days_until_shipping: '3-4日で発送',
+        seller_id: '2',
+        buyer_id: '1',
+        category_id:'470',
+        brand_id:'',
 
-  ]
-)
-Item.create!(
-  [
-    {
-      name: 'メロン 賞味期限があと1日',
-      text: 'でも美味しいよ！',
-      price: '100',
-      condtion: '未使用',
-      prefectures: '神奈川県',
-      postage_type: '送料込み',
-      days_until_shipping: '1-2日で発送',
-      seller_id: '1',
-      buyer_id: '',
-      category_id:'470',
-      brand_id:'2',
-    },
-    {
-      name: 'ソーセージ',
-      text: '酒のつまみに最適！！',
-      price: '5800',
-      condtion: '未使用',
-      prefectures: '東京都',
-      postage_type: '送料込み',
-      days_until_shipping: '3-4日で発送',
-      seller_id: '2',
-      buyer_id: '1',
-      category_id:'470',
-      brand_id:'',
+      },
+      {
+        name: 'パサぱさのさば',
+        text: 'ランチに最適！',
+        price: '50',
+        condtion: '未使用',
+        prefectures: '東京都',
+        postage_type: '送料込み',
+        days_until_shipping: '3-4日で発送',
+        seller_id: '1',
+        buyer_id: '',
+        category_id:'470',
+        brand_id:'1',
 
-    },
-    {
-      name: 'パサぱさのさば',
-      text: 'ランチに最適！',
-      price: '50',
-      condtion: '未使用',
-      prefectures: '東京都',
-      postage_type: '送料込み',
-      days_until_shipping: '3-4日で発送',
-      seller_id: '1',
-      buyer_id: '',
-      category_id:'470',
-      brand_id:'1',
+      },
+      {
+        name: 'フルーツセット',
+        text: 'プレゼント用に個装されています。',
+        price: '10050',
+        condtion: '未使用',
+        prefectures: '青森県',
+        postage_type: '送料込み',
+        days_until_shipping: '3-4日で発送',
+        seller_id: '2',
+        buyer_id: '',
+        category_id:'470',
+        brand_id:'2',
 
-    },
-    {
-      name: 'フルーツセット',
-      text: 'プレゼント用に個装されています。',
-      price: '10050',
-      condtion: '未使用',
-      prefectures: '青森県',
-      postage_type: '送料込み',
-      days_until_shipping: '3-4日で発送',
-      seller_id: '2',
-      buyer_id: '',
-      category_id:'470',
-      brand_id:'2',
+      }
 
-    }
+    ]
+  )
 
-  ]
-)
-
-Image.create!(item_id: '1', url: open("#{Rails.root}/app/assets/images/pict/item-001.jpg"))
-Image.create!(item_id: '1', url: open("#{Rails.root}/app/assets/images/pict/pict-reason-01.jpg"))
-Image.create!(item_id: '2', url: open("#{Rails.root}/app/assets/images/pict/item-002.jpg"))
-Image.create!(item_id: '3', url: open("#{Rails.root}/app/assets/images/pict/item-003.png"))
-Image.create!(item_id: '4', url: open("#{Rails.root}/app/assets/images/pict/item-004.jpg"))
-Image.create!(item_id: '5', url: open("#{Rails.root}/app/assets/images/pict/item-001.jpg"))
-Image.create!(item_id: '5', url: open("#{Rails.root}/app/assets/images/pict/pict-reason-01.jpg"))
-Image.create!(item_id: '6', url: open("#{Rails.root}/app/assets/images/pict/item-002.jpg"))
-Image.create!(item_id: '7', url: open("#{Rails.root}/app/assets/images/pict/item-003.png"))
-Image.create!(item_id: '8', url: open("#{Rails.root}/app/assets/images/pict/item-004.jpg"))
-Image.create!(item_id: '9', url: open("#{Rails.root}/app/assets/images/pict/item-001.jpg"))
-Image.create!(item_id: '9', url: open("#{Rails.root}/app/assets/images/pict/pict-reason-01.jpg"))
-Image.create!(item_id: '10', url: open("#{Rails.root}/app/assets/images/pict/item-002.jpg"))
-Image.create!(item_id: '11', url: open("#{Rails.root}/app/assets/images/pict/item-003.png"))
-Image.create!(item_id: '12', url: open("#{Rails.root}/app/assets/images/pict/item-004.jpg"))
-
-
+  Image.create!(item_id: '1', url: open("#{Rails.root}/app/assets/images/pict/item-001.jpg"))
+  Image.create!(item_id: '1', url: open("#{Rails.root}/app/assets/images/pict/pict-reason-01.jpg"))
+  Image.create!(item_id: '2', url: open("#{Rails.root}/app/assets/images/pict/item-002.jpg"))
+  Image.create!(item_id: '3', url: open("#{Rails.root}/app/assets/images/pict/item-003.png"))
+  Image.create!(item_id: '4', url: open("#{Rails.root}/app/assets/images/pict/item-004.jpg"))
+  Image.create!(item_id: '5', url: open("#{Rails.root}/app/assets/images/pict/item-001.jpg"))
+  Image.create!(item_id: '5', url: open("#{Rails.root}/app/assets/images/pict/pict-reason-01.jpg"))
+  Image.create!(item_id: '6', url: open("#{Rails.root}/app/assets/images/pict/item-002.jpg"))
+  Image.create!(item_id: '7', url: open("#{Rails.root}/app/assets/images/pict/item-003.png"))
+  Image.create!(item_id: '8', url: open("#{Rails.root}/app/assets/images/pict/item-004.jpg"))
+  Image.create!(item_id: '9', url: open("#{Rails.root}/app/assets/images/pict/item-001.jpg"))
+  Image.create!(item_id: '9', url: open("#{Rails.root}/app/assets/images/pict/pict-reason-01.jpg"))
+  Image.create!(item_id: '10', url: open("#{Rails.root}/app/assets/images/pict/item-002.jpg"))
+  Image.create!(item_id: '11', url: open("#{Rails.root}/app/assets/images/pict/item-003.png"))
+  Image.create!(item_id: '12', url: open("#{Rails.root}/app/assets/images/pict/item-004.jpg"))
+end

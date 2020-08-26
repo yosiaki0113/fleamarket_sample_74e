@@ -5,35 +5,37 @@
         .itemlistmain__showbox__content__titlebox__title
           全商品一覧
         %ul.itemlistmain__showbox__content__titlebox__sublists
-          %li
-            =link_to "菓子", "#"
-          %li
-            =link_to "米", "#"
-          %li
-            =link_to "野菜", "#"
-          %li
-            =link_to "果物", "#"
-          %li
-            =link_to "調味料", "#"
-          %li
-            =link_to "魚介類(加工食品)", "#"
-          %li
-            =link_to "肉類(加工食品)", "#"
-          %li
-            =link_to "トップス", "#"
-          %li
-            =link_to "ジャケット/アウター", "#"
-          %li
-            =link_to "パンツ", "#"
-          %li
-            =link_to "靴", "#"
-          %li
-            =link_to "バッグ", "#"
-          %li
-            =link_to "その他", "#"
+          - @parents.each do |parent|
+            %li.categories__titlebox__lists__parent
+              = link_to "#{parent.name}", category_path(parent)
             
       %ul.itemlistmain__showbox__content__itemlists
-        = render 'itemlist'
+        
+        - @items_all.each do |item|
+          %li.itemlist
+            = link_to item_path(item.id) do
+              - if item.buyer_id != nil
+                .itemlist__sold
+                  .itemlist__sold__text
+                    S O L D
+              .itemlist__img
+                = item.images.first(1).each do |image|
+                  = image_tag image.url.url
+              .itemlist__body
+                .itemlist__body__name
+                  = item.name
+                .itemlist__body__details
+                  %ul
+                    %li
+                      - if item.buyer_id != nil
+                        .itemlist__body__details__sold
+                          S O L D
+                      - else
+                        = "¥#{item.price.to_s(:delimited)}"
+                    %li
+                      =icon('fa', 'star', class: 'itemlist__body__details__likeicon')
+                      0
+                  %p (税込み)
 
 = render 'exhibitionBtn'
 = render "appbanner"

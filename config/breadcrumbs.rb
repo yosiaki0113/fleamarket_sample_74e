@@ -6,6 +6,10 @@ crumb :mypage do
   link "マイページ", user_path(current_user)
 end
 
+crumb :allshowitems do
+  link "全商品一覧"
+end
+
 crumb :mypage_logout do
   link "ログアウト", user_path(current_user)
   parent :mypage

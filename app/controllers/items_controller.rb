@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_items, only: [:index,:show_itemlist]
+  before_action :check_user_signin, only: [:new] 
 
   
   def index
@@ -14,10 +15,10 @@ class ItemsController < ApplicationController
   end
 
   def new
-    render layout: 'sub_header_footer'
     @item = Item.new
     @item.images.new
     @category_parent_array = Category.roots
+    render layout: 'sub_header_footer'
   end
 
   def category_children
@@ -30,12 +31,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-
-    if @item.save
+    if @item.save && Brand.create(name: params[:item][:brand],item_id: @item.id)
       redirect_to root_path, notice: '商品を出品しました'
     else
+      @item.images.new
       flash.now[:notice] = '出品には必須項目が必要です'
-      render :new
+      render :new,layout: 'sub_header_footer'
     end
   end
 
@@ -68,8 +69,8 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :category_id, :price, :text,
-     :condtion, :postage_type, :prefectures, :days_until_shipping, :brand,
-      images_attributes: [:image, :_destroy, :id]).
+     :condtion_id, :postage_type_id, :prefecture_id, :days_until_shipping_id,
+      images_attributes: [:url, :_destroy, :id]).
       merge(seller_id: current_user.id)
   end
 
@@ -79,6 +80,13 @@ class ItemsController < ApplicationController
 
   def set_items
     @items = Item.includes(:images).order(created_at: "DESC") #新規登録順で表示
+  end
+
+  def check_user_signin
+    if user_signed_in?
+    else
+      redirect_to new_user_session_path
+    end
   end
 
 end

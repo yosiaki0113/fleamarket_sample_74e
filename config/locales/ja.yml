@@ -18,6 +18,9 @@ ja:
         prefecture: "都道府県"
         city: "市区町村"
         house_number: "番地"
+      item:
+        images: "※出品画像"
+
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}。"

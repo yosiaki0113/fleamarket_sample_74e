@@ -1,3 +1,6 @@
+- breadcrumb :item_category
+= render "categories/breadcrumbs"
+
 .item-main
   .main-show
     .contentl-left
@@ -23,6 +26,30 @@
               .item-box__body__price__pricedetail
                 %span (税込)
                 %span 送料込み
+            .item-box__body__purchase
+              - if @item.buyer_id != nil
+              - else
+                =  link_to "この商品を購入する", purchase_items_path, class: 'item-box__body__purchase--btn'
+            .item-box__body__destory
+              -if user_signed_in? && @user.id == @item.seller_id
+                - if @item.buyer_id != nil
+                  .item-box__body__destory--btn-not
+                    購入済みのため商品は削除できません
+                - else
+                  %button#modal-open-btn この商品を削除する
+                  = link_to "削除", item_path(@item),id:'item-delete-btn', method: :delete
+                  #overlay1
+                    #modalWindow
+                      .modal-message-box
+                        %div 削除すると二度と復活できません。
+                        %div 本当に削除しますか？
+                      %button#modal-close-btn キャンセル
+                      %button#delete-comformation-btn 削除する
+                  #overlay2
+                    #modalWindow
+                      .modal-message-box
+                        %div 商品を削除しました
+                        %div トップページへ戻ります
             .item-box__body__price__detail
               = @item.text
             .item-box__body__price__detail__table
@@ -41,26 +68,26 @@
                   %tr
                     %th ブランド
                     %td
-                      - if @item.brand_id != nil
-                        = @item.brand.name
+                      - if @item.brand != nil
+                        = @item.brand
                       - else
                         なし
                   %tr
                     %th 商品の状態
                     %td
-                      = @item.condtion
+                      = @item.condtion.name
                   %tr
                     %th 配送料の負担
                     %td 
-                      = @item.postage_type
+                      = @item.postage_type.name
                   %tr
                     %th 発送元の地域
                     %td.blue
-                      = @item.prefectures
+                      = @item.prefecture.name
                   %tr
                     %th 発送日の目安
                     %td 
-                      = @item.days_until_shipping
+                      = @item.days_until_shipping.name
             .item-box__body__price__detail__optionalares
               %ul
                 %li.item-box__body__price__detail__optionalares__likebtn
@@ -86,10 +113,8 @@
                   %i
                     =icon('fa', 'comment')
                   %span コメントする
-        .item-box__body__purchase
-          - if @item.buyer_id != nil
-          - else
-            =  link_to "この商品を購入する", purchase_items_path, class: 'item-box__body__purchase--btn'
+        .item-box__body__destroy
+
         %ul.links
           %li.link__prev
             = link_to "#", class: "prev" do
@@ -103,23 +128,53 @@
               %i.fas.fa-chevron-right
         .relateditems
           = link_to "#", class: "#" do
-            ベビー・キッズをもっとみる
-          .relateditems__itemlists
-            .relateditems__itemlists__itemlist
-              = link_to '#' do
-                = image_tag asset_path("pict/item-003.png"), class:"relateditems__itemlists__itemlist__img"
-                .relateditems__itemlists__itemlist__body
-                  .relateditems__itemlists__itemlist__body__name
-                    さば
-                    .relateditems__itemlists__itemlist__body__name__details
-                      %ul
-                        %il 500円
-                        %il 
-                          %i
-                            =icon('fa', 'star')
-                            0
-                        %p (税込み)
+            -# ベビー・キッズをもっとみる
+          -# .relateditems__itemlists
+          -#   .relateditems__itemlists__itemlist
+          -#     = link_to '#' do
+          -#       = image_tag asset_path("pict/item-003.png"), class:"relateditems__itemlists__itemlist__img"
+          -#       .relateditems__itemlists__itemlist__body
+          -#         .relateditems__itemlists__itemlist__body__name
+          -#           さば
+          -#           .relateditems__itemlists__itemlist__body__name__details
+          -#             %ul
+          -#               %il 500円
+          -#               %il 
+          -#                 %i
+          -#                   =icon('fa', 'star')
+          -#                   0
+          -#               %p (税込み)
 
+.itemlists-title
+  .itemlists-title__box
+    = link_to category_path(@item.category.parent.parent) do
+      = "#{@item.category.parent.parent.name}をもっとみる"
+  .itemlists                       
+    - @items_c.each do |item|
+      %li.itemlist
+        = link_to item_path(item.id) do
+          - if item.buyer_id != nil
+            .itemlist__sold
+              .itemlist__sold__text
+                S O L D
+          .itemlist__img
+            = item.images.first(1).each do |image|
+              = image_tag image.url.url
+          .itemlist__body
+            .itemlist__body__name
+              = item.name
+            .itemlist__body__details
+              %ul
+                %li
+                  - if item.buyer_id != nil
+                    .itemlist__body__details__sold
+                      S O L D
+                  - else
+                    = "¥#{item.price.to_s(:delimited)}"
+                %li
+                  =icon('fa', 'star', class: 'itemlist__body__details__likeicon')
+                  0
+              %p (税込み)
 
 = render 'exhibitionBtn'
 = render "appbanner"

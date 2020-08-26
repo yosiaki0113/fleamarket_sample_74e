@@ -245,8 +245,128 @@
           line-height: 60px;
         }
       }
+      &__destory {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        &--btn-not {
+          display: block;
+          height: 60px;
+          width: 500px;
+          border-radius: 0.5em;
+          background-color: gray;
+          margin: 0 auto;
+          text-align: center;
+          text-decoration: none;
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 60px;
+
+        }
+        #modal-open-btn {
+          display: block;
+          height: 60px;
+          width: 500px;
+          border-radius: 0.5em;
+          background-color: white;
+          margin: 0 auto;
+          text-align: center;
+          text-decoration: none;
+          border: 2px solid red;
+          color: red;
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 60px;
+          transition: all 0.3s;
+          cursor: pointer;
+          &:hover{
+            background-color: red;
+            color:white
           }
         }
+        a{
+          display: none;
+        }
+        #overlay1 {
+          //モーダルウィンドウの背景を設定
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+          //透過度をつける
+            background: rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1;
+        }
+        #overlay2 {
+          //モーダルウィンドウの背景を設定
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+          //透過度をつける
+            background: rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1;
+        }
+          
+          #modalWindow {
+          // モーダルウィンドウの画面を設定(高さ・幅は調整ください)
+            width: 500px;
+            height: 200px;
+            position: absolute;
+          //トップからの場所を指定（topをいじれば高さが調整できます）
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 5px 8px 10px gray;
+            z-index: 2;
+          //flexboxで子要素のボタンとメッセージボックスの要素を配置する
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+          
+            .modal-message-box {
+              width: 100%;
+          //下記heightの60pxはボタンの高さで、それを画面の大きさから引いています。
+              height: calc(100% - 60px);
+              text-align: center;
+          //flexboxで文字の配置を決める（縦方向、中央揃え）
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
+            }
+          
+            #modal-close-btn {
+              width: 50%;
+              height: 60px;
+              background-color: white;
+              border: 1px solid gray;
+              cursor: pointer;
+              &:hover{
+                color: blue;
+              }
+            }
+          
+            #delete-comformation-btn {
+              width: 50%;
+              height: 60px;
+              background-color: white;
+              border: 1px solid gray;
+              cursor: pointer;
+              &:hover{
+                color: red;
+              }
+            }
+          }
+          
+      }
+
+    }
+  }
       ul {
         list-style: none;
         li.link__prev {
@@ -348,3 +468,127 @@
                 }
             }
           }
+
+.itemlists-title{
+  margin: 0 auto;
+  &__box{
+    max-width: 1000px;
+    margin: 0 auto;
+    a{
+      text-decoration: none;
+      color: #3CCACE;
+      font-size: 20px;
+      font-weight: bolder;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  
+  }
+
+}
+.itemlists{
+            max-width: 1000px;
+            padding: 0 10px;
+            margin: 26px auto 50px;
+            flex-wrap: wrap;
+            
+            li{
+              color: #f8f8f8;
+              display: inline-block;
+
+            }
+            .itemlist{
+              width: 220px;
+              margin: 0 5px 10px;
+              outline: 1px solid #f8f8f8;
+              box-shadow: 1px 2px 2px rgb(194, 189, 189);
+              transition: all 0.3s ; 
+              &__sold{
+                margin-top: 60px;
+                text-align: center;
+                width: 220px;
+                position: absolute;
+                &__text{
+                  width: 75%;
+                  margin: 0 auto;
+                  padding: 5px;
+                  font-weight:bolder;
+                  font-size:20px;
+                  color:#fff;
+                  background:#c00;
+                  opacity: 0.85;  
+                }
+              }
+      
+              &:hover{
+                opacity: 0.8;
+                outline: solid 1px #3CCACE;
+                box-shadow: 0 2px 8px darken($color: #3CCACE, $amount: 15%);
+              }
+              a{
+                background-color: #fff;
+                display: inline-block;
+                text-decoration: none;
+              }
+              &__img{
+                width: 220px;
+                height: 150px;
+                overflow: hidden;
+                margin: 0;
+                img{
+                  width: 100%;
+                  height: 150px;
+                  object-fit: cover;
+                  background-color: white;
+                }
+              }
+              &__body{
+                background-color: white;
+                color: #333;
+                padding: 16px;
+                &__name{
+                  overflow: hidden;
+                  width: 180px;
+                  line-height: 1.5;
+                  font-size: 15px;
+                  text-align: left;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                }
+                &__details{
+                  margin-top: 5px;
+                  font-size: 16px;
+                  ul{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    li{
+                      color: #333;
+                    }
+                    li:first-of-type{
+                      color: red;
+                      font-weight: bold;
+                      .itemlist__body__details__sold{
+                        width: 100%;
+                        padding: 0 12px 0 5px;
+                        color: white;
+                        background-color: #c00;
+                        opacity: 0.85;
+                        border-top-right-radius : 1em;
+                        -webkit-border-top-right-radius: 1em;
+                        border-bottom-right-radius : 1em;
+                        -webkit-border-bottom-right-radius: 1em;
+                    }
+      
+                    }
+                  }
+    
+                  p{
+                    font-size: 10px;
+                    text-align: left;
+                  }
+                }
+              }
+            }
+}

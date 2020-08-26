@@ -2,9 +2,10 @@
   padding: 0 60px;
   background-color: #fff;
   width: 100%;
+  box-shadow: 0 0 2px gray;
   &__inner{
-    max-width: 1040px;
-    width: calc(100%);
+    max-width: 1200px;
+    width: 100%;
     min-height: 82px;
     margin: 0 auto;
     padding: 15px 0 0;
@@ -74,6 +75,11 @@
             height: 16px;
             margin: auto 5px;
           }
+          a{
+            text-decoration: none;
+            color: inherit;
+
+          }
           &:hover {
             color: #ffb340;
             font-weight: bold;
@@ -108,6 +114,15 @@
         }
         li:last-of-type{
           margin: 0;
+        }
+        &__username{
+          text-decoration: none;
+          color: gray;
+          line-height: 32px;
+          font-size: 14px;
+          span{
+            font-weight: bolder;
+          }
         }
         &__navbtn-in{
           text-decoration: none;

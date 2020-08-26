@@ -31,8 +31,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      Brand.create(name: params[:item][:brand],item_id: @item.id)
+    if @item.save && Brand.create(name: params[:item][:brand],item_id: @item.id)
       redirect_to root_path, notice: '商品を出品しました'
     else
       @item.images.new

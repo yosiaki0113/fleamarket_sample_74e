@@ -1,13 +1,14 @@
 .category-box
   %ul.parent
+  
     - @parents.each do |parent|
       %li.parent-category
-        = parent.name
+        = link_to "#{parent.name}", category_path(parent)
         %ul.child
           - parent.children.each do |child|
             %li.child-category
-              = child.name
+              = link_to "#{child.name}", category_path(child)
               %ul.grandchild
                 - child.children.each do |grandchild|
                   %li.grandchild-category
-                    = grandchild.name
+                    = link_to "#{grandchild.name}", category_path(grandchild)

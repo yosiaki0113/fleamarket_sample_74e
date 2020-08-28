@@ -13,6 +13,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.timestamp :close_date
       t.integer :seller_id, null:false
       t.integer :buyer_id
+      t.string :brand
       t.timestamps
     end
   end

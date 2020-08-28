@@ -1,0 +1,127 @@
+.categories{
+  width: 80%;
+  max-width: 1200px;
+  margin: 30px auto;
+  &__titlebox{
+    &__title{
+      font-weight: bolder;
+      font-size: larger;
+    }
+    &__parents{
+      padding: 10px 0 10px;
+      li{
+        text-decoration: none;
+        display: inline-block;
+        line-height: 26px;
+        margin: 10px 0 10px;
+        a{
+          text-decoration: none;
+          color: #222222;
+          padding: 10px;
+          margin-right: 10px;
+          white-space: nowrap;
+          background-color: #FFFFFF;
+          border-radius: 0.3em;
+          box-shadow: 0 1px 3px #ada9a9;
+          transition: all 0.2s;
+          &:hover{
+            color: #FFFFFF;
+            background-color: #3CCACE;
+          }
+        }
+      }
+    }
+
+  }
+  .categories__body__childrens{
+    &__children{
+      text-decoration: none;
+      font-size: larger;
+      a{
+        text-decoration: none;
+      }
+    }
+  }
+}
+.categories__body{
+  width: 100%;
+  &__parents{
+    margin: 10px 0;
+    &__parent{
+      padding: 5px 10px;  
+      margin: 30px 0 0;
+      font-size: larger;
+      background-color: #3CCACE;
+      border-top-right-radius : 0.5em;
+      -webkit-border-top-right-radius: 0.5em;
+      border-top-left-radius : 0.5em;
+      -webkit-border-top-left-radius: 0.5em;
+      box-shadow: 0 1px 3px #ada9a9;
+      a{
+        text-decoration: none;
+        color: #FFFFFF;
+        &:hover{
+          color: #ffb340;
+        }
+      }
+    }
+  }
+  &__childrens{
+    background-color: #FFFFFF;
+    padding: 20px 10px;
+    border-bottom-right-radius : 0.5em;
+    -webkit-border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius : 0.5em;
+    -webkit-border-bottom-left-radius: 0.5em;
+    box-shadow: 0 1px 3px #ada9a9;
+    &__childern{
+      font-size: large;
+      border-bottom: 2px solid #3CCACE;
+      a{
+        text-decoration: none;
+        color: #222222;
+        padding: 10px 0;
+        margin: 5px 0 10px;
+        white-space: nowrap;
+        color: #3CCACE;
+        border-radius: 0.3em;
+        &:hover{
+          color: #ffb340;
+        }
+      }
+    }
+  }
+  &__grandchildrens{
+    margin: 5px 0 20px;
+    &__grandchildren{
+      display: inline-block;
+      margin: 5px 0 10px;
+      margin: 5px 0 20px;
+      a{
+        text-decoration: none;
+        white-space: nowrap;
+        padding: 10px;
+        margin-right: 10px;
+        color: gray;
+        &:hover{
+          color: #ffb340;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.breadcrumbs{
+  padding: 10px 60px;
+  &__list{
+    a{
+      margin: 0 5px;
+      color: gray;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}

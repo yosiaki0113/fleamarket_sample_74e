@@ -1,5 +1,6 @@
 .itemlistmain{
   background: #f8f8f8;
+  height: calc(100%);
   &__showbox{
     padding: 40px;
     margin: 0 auto;
@@ -9,7 +10,8 @@
       margin: 0 auto;
       &__titlebox{
         background-color: #fff;
-        border-radius: 5px;
+        border-radius: 0.3em;
+        box-shadow: 0 1px 3px #ada9a9;
         &__title{
           border-radius: 5px 5px 0 0;
           padding: 16px 10px 8px;
@@ -27,19 +29,20 @@
             line-height: 26px;
             margin: 10px;
             white-space: nowrap;
-            &:hover{
-              text-decoration: underline;
-            }
             a{
-              color: #ffb340;
+              color: gray;
               text-decoration: none;
               font-size: 14px;
-            }
+              &:hover{
+                text-decoration: underline;
+                color: #ffb340;
+              }
+              }
           }
         }
       }
       &__itemlists{
-        max-width: 1180px;
+        max-width: 1200px;
         padding: 0 10px;
         margin: 26px auto 0;
         display:flex;

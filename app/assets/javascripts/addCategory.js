@@ -77,3 +77,163 @@ $(function(){
   });
   
 }); 
+
+$(function(){
+  $('#parent_p_1').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_1").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+$(function(){
+  $('#parent_p_200').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_200").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+$(function(){
+  $('#parent_p_346').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_346").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+$(function(){
+  $('#parent_p_481').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_481").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+$(function(){
+  $('#parent_p_625').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_625").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+$(function(){
+  $('#parent_p_685').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_685").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+$(function(){
+  $('#parent_p_798').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_798").offset().top -12 ;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+
+$(function(){
+  $('#parent_p_898').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_898").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+
+$(function(){
+  $('#parent_p_984').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_984").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+
+$(function(){
+  $('#parent_p_1093').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_1093").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+
+$(function(){
+  $('#parent_p_1147').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_1147").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+$(function(){
+  $('#parent_p_1207').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_1207").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+
+$(function(){
+  $('#parent_p_1270').click(function(){
+    //スクロールのスピード
+    var speed = 500;
+    //リンク先までの距離を取得
+    var position = $("#parent_1270").offset().top -12;
+    //スムーススクロール
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});

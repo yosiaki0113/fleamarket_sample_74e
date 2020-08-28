@@ -1,0 +1,22 @@
+- breadcrumb :category_index
+= render "breadcrumbs"
+.categories
+  .categories__titlebox
+    .categories__titlebox__title
+      カテゴリー一覧
+    %ul.categories__titlebox__parents
+      - @parents.each do |parent|
+        %li.categories__titlebox__lists__parent
+          = link_to "#{parent.name}", "#",{id: "parent_p_#{parent.id}"}
+  .categories__body
+    %ul.categories__body__parents
+      - @parents.each do |parent|
+        %li.categories__body__parents__parent 
+          = link_to "#{parent.name} （すべて）", category_path(parent) ,{id: "parent_#{parent.id}"}
+        %ul.categories__body__childrens
+          - parent.children.each do |child|
+            %li.categories__body__childrens__childern= link_to "#{child.name} （すべて）", category_path(child)
+            %ul.categories__body__grandchildrens
+              - child.children.each do |grandchild|
+                %li.categories__body__grandchildrens__grandchildren= link_to "#{grandchild.name}", category_path(grandchild)
+= render 'items/exhibitionBtn'

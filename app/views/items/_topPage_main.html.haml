@@ -97,21 +97,32 @@
   .pickupContainer
     .pickupContainer__head
       ピックアップカテゴリー
+      .pickupContainer__head__categories
+        = link_to "#{Category.find(1).name}", category_path(1), {class: "pickupContainer__head__categories__category"}
+        = link_to "#{Category.find(685).name}", category_path(685), {class: "pickupContainer__head__categories__category"}
+        = link_to "#{Category.find(1270).name}", category_path(1270), {class: "pickupContainer__head__categories__category"}
+
     .pickupContainer__itemBox
       .pickupContainer__itemBox__head
-        = link_to '#' do
+        = link_to show_itemlist_items_path do
           .pickupContainer__itemBox__head__title
             新規投稿商品
-      %ul.pickupContainer__itemBox__lists
+          .pickupContainer__itemBox__head__showall
+            もっと見る
+      %ul#pickupContainer__itemBox__lists
         = render 'itemlist'
   .pickupContainer
     .pickupContainer__head
       ピックアップブランド
     .pickupContainer__itemBox
       .pickupContainer__itemBox__head
-        = link_to "#" do
+        = link_to show_itemlist_items_path do
           .pickupContainer__itemBox__head__title
             アーカイバ
+          -if @items.count != 0
+            .pickupContainer__itemBox__head__showall
+              もっと見る
       .pickupContainer__itemBox__lists
         = render 'itemlist'
+
 = render 'exhibitionBtn'

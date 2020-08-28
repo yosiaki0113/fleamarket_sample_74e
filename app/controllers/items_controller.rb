@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_items, only: [:index,:show_itemlist]
+  before_action :set_items, only: [:index,:show_itemlist,:show]
+  before_action :set_items_c, only: [:show]
   before_action :check_user_signin, only: [:new] 
 
   
@@ -9,9 +10,13 @@ class ItemsController < ApplicationController
   
   def show
     @seller = Item.find(params[:id]).seller
+    @user = current_user
+    @items_f = Item.all.includes(:user)
   end
 
-  def show_itemlist
+  def destroy
+    @item.destroy 
+    redirect_to root_path
   end
 
   def new
@@ -31,7 +36,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save && Brand.create(name: params[:item][:brand],item_id: @item.id)
+    if @item.brand.blank?
+      @item.brand = nil
+    end
+    if @item.save
+      
       redirect_to root_path, notice: '商品を出品しました'
     else
       @item.images.new
@@ -68,7 +77,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :category_id, :price, :text,
+    params.require(:item).permit(:name, :category_id, :price, :text,:brand,
      :condtion_id, :postage_type_id, :prefecture_id, :days_until_shipping_id,
       images_attributes: [:url, :_destroy, :id]).
       merge(seller_id: current_user.id)
@@ -79,7 +88,15 @@ class ItemsController < ApplicationController
   end
 
   def set_items
-    @items = Item.includes(:images).order(created_at: "DESC") #新規登録順で表示
+    @items = Item.includes(:images).order(created_at: "DESC").limit(5) #新規登録順で表示
+    @items_all = Item.includes(:images).order(created_at: "DESC")#新規登録順で表示
+  end
+
+  def set_items_c
+    @items_c = @item.category.parent.parent.set_items
+    @items_c = @items_c.where.not(id: @item.id)
+    @items_c = @items_c.where(buyer_id: nil).order("created_at DESC")
+
   end
 
   def check_user_signin

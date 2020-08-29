@@ -26,6 +26,17 @@ class ItemsController < ApplicationController
     render layout: 'sub_header_footer'
   end
 
+  def edit
+  end
+
+  def update
+    if @item.upadte(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   def category_children
     @category_children = Category.find(params[:parent_id]).children
   end

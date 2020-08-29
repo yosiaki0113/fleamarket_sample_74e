@@ -248,6 +248,22 @@
       &__destory {
         margin-top: 40px;
         margin-bottom: 40px;
+        &--btn-edit {
+          display: block;
+          border-radius: 100px;
+          height: 60px;
+          width: 500px;
+          border-radius: 0.5em;
+          background-color: #3CCACE;
+          margin: 0 auto 40px;
+          text-align: center;
+          text-decoration: none;
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 60px;
+
+        }
         &--btn-not {
           display: block;
           height: 60px;
@@ -285,7 +301,7 @@
             color:white
           }
         }
-        a{
+        #item-delete-btn {
           display: none;
         }
         #overlay1 {

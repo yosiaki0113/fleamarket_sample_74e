@@ -32,6 +32,8 @@
                 =  link_to "この商品を購入する", purchase_items_path, class: 'item-box__body__purchase--btn'
             .item-box__body__destory
               -if user_signed_in? && @user.id == @item.seller_id
+                %button#modal-open-btn この商品を編集する
+                = link_to "編集", edit_item_path
                 - if @item.buyer_id != nil
                   .item-box__body__destory--btn-not
                     購入済みのため商品は削除できません

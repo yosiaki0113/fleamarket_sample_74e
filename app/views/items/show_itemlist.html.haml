@@ -35,8 +35,8 @@
                       - else
                         = "¥#{item.price.to_s(:delimited)}"
                     %li
-                      =icon('fa', 'star', class: 'itemlist__body__details__likeicon')
-                      0
+                      #likes_buttons
+                        = render partial: 'likes/like', locals: { item: item, likes: @likes}
                   %p (税込み)
 
 = render 'exhibitionBtn'

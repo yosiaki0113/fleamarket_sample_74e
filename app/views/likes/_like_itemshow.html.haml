@@ -1,0 +1,22 @@
+-if user_signed_in? 
+  -unless item.like_user(current_user.id).blank?
+    = link_to item_like_path(item_id: item.id , id: item.likes[0].id), class:'likes_button-delete',method: :delete, remote: true do
+      .likes_buttons__likeicon
+        =icon('fa', 'star', class: 'likes_button-delete__likeicon-red')
+        %span.likes_button-delete__likeicon-text-red
+          お気に入り登録済み
+          = "#{item.likes_count}人"
+  - else
+    = link_to item_likes_path(item.id), class:'likes_button-create', method: :post, remote: true do
+      .likes_buttons__likeicon
+        =icon('fa', 'star', class: 'likes_button-create__likeicon-blue')
+        %span.likes_button-create__likeicon-text-blue
+          お気に入り登録
+          = "#{item.likes_count}人"
+
+- else
+  .likes_button-create
+    =icon('fa', 'star', class: 'likes_button-create__likeicon-blue')
+    %span.likes_button-create__likeicon-text-blue
+      お気に入り登録
+      = "#{item.likes_count}人"

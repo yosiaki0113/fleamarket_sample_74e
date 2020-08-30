@@ -129,6 +129,21 @@
             border-radius: 2em;
             line-height: 28px;
             font-size: 12px;
+            transition: all 0.5s;
+            &__icon{
+              display: none;
+              color: #ffcc00;
+            }
+            &:hover .header-nav__right-nav__navbtn-likes__text__icon{
+              display: inline-block;
+              animation: rotate-anime 2s ease-in-out infinite;
+              @keyframes rotate-anime {
+                100%{ transform: rotate(720deg) }
+               }
+            }
+            &:hover ~ .header-nav__right-nav__navbtn-likes__count{
+              left: 87.5px;
+            }
           }
           &__count{
             position: absolute;

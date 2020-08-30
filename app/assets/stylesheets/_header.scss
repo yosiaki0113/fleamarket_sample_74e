@@ -2,6 +2,7 @@
   padding: 0 60px;
   background-color: #fff;
   width: 100%;
+  min-width: 800px;
   box-shadow: 0 0 2px gray;
   &__inner{
     max-width: 1200px;
@@ -115,13 +116,42 @@
         li:last-of-type{
           margin: 0;
         }
+        &__navbtn-likes{
+          text-decoration: none;
+          background-color: white;
+          color: #3CCACE;
+          font-weight: bolder;
+          position: relative;
+          display: flex;
+          &__text{
+            padding: 0 10px 0;
+            border: solid 1px #ffb340;
+            border-radius: 2em;
+            line-height: 28px;
+            font-size: 12px;
+          }
+          &__count{
+            position: absolute;
+            z-index: 100;
+            background-color: red;
+            color: white;
+            font-size: 10px;
+            padding: 0 5px;
+            border-radius: 50%;
+            text-shadow: 0 1px 2px gray;
+            left: 70px;
+            top: -3px;
+          }
+        }
+
         &__username{
           text-decoration: none;
           color: gray;
           line-height: 32px;
-          font-size: 14px;
+          font-size: 12px;
           span{
             font-weight: bolder;
+            font-size: 14px;
           }
         }
         &__navbtn-in{

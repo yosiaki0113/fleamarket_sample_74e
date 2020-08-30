@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_items, only: [:index,:show_itemlist,:show]
   before_action :set_items_c, only: [:show]
   before_action :check_user_signin, only: [:new] 
+  before_action :set_likes_items, only: [:index,:show_itemlist,:show]
 
   
   def index
@@ -103,6 +104,12 @@ class ItemsController < ApplicationController
     if user_signed_in?
     else
       redirect_to new_user_session_path
+    end
+  end
+
+  def set_likes_items
+    if user_signed_in?
+      @like_items = Item.where(id: User.find(current_user.id).likes.select("item_id"))
     end
   end
 

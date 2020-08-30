@@ -11,4 +11,5 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
 
   has_many :shipping_addresses, dependent: :destroy
+  has_many :likes
 end

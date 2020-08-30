@@ -32,6 +32,13 @@
       %ul.header-nav__right-nav
         -if user_signed_in?
           %li
+            = link_to likes_path,class:'header-nav__right-nav__navbtn-likes' do
+              .header-nav__right-nav__navbtn-likes__text
+                お気に入り
+              - if  @like_items.count != 0
+                .header-nav__right-nav__navbtn-likes__count
+                  = @like_items.count
+          %li
             .header-nav__right-nav__username
               ようこそ、
               %span

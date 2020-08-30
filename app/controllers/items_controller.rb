@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_items, only: [:index,:show_itemlist,:show]
   before_action :set_items_c, only: [:show]
   before_action :check_user_signin, only: [:new] 
-  before_action :set_likes_items, only: [:index,:show_itemlist,:show]
+  before_action :set_likes_items
 
   
   def index

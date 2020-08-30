@@ -4,6 +4,8 @@
 .likes
   .likes-title
     お気に入り一覧
+    %span
+      = "(#{@like_items.count}件)"
   .itemlists                       
     - @like_items.each do |item|
       %li.itemlist

@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_items, only: [:index,:show_itemlist,:show]
-  before_action :set_items_c, only: [:show]
+  before_action :set_items, only: [:index, :show_itemlist, :show, :edit, :update]
+  before_action :set_items_c, only: [:show, :edit, :update]
   before_action :check_user_signin, only: [:new] 
 
   
@@ -27,12 +27,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
-    @item.images
   end
 
   def update
-    if @item.upadte(item_params)
+    if @item.update(item_params)
       redirect_to root_path
     else
       render :edit

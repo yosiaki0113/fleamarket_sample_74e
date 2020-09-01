@@ -50,6 +50,8 @@
             .sell-collection_select-c
               .sell-collection_select-c__label
                 = f.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択して下さい'}, {class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
+                = f.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択して下さい'}, {class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
+                = f.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択して下さい'}, {class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
                 %i.fas.fa-chevron-down
             .sell-title
               %h3.sell-title__text
@@ -117,7 +119,7 @@
             .sell-container__content__price__form
               = f.label :price, class: 'sell-container__content__price__form__label' do
                 ¥
-                = f.number_field :price, {placeholder: '0', value: '', autocomplete:"off", class: 'sell-container__content__price__form__box', required: "required"}
+                = f.number_field :price, {placeholder: '0', autocomplete:"off", class: 'sell-container__content__price__form__box', required: "required"}
 
           -#後日追加実装予定の項目です
           .sell-container__content__commission

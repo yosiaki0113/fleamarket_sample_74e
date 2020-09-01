@@ -109,7 +109,7 @@ class ItemsController < ApplicationController
 
   def set_likes_items
     if user_signed_in?
-      @like_items = Item.where(id: User.find(current_user.id).likes.select("item_id"))
+      @like_items = Item.where(id: current_user.likes.select("item_id"))
     end
   end
 

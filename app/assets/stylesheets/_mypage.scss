@@ -125,33 +125,3 @@
       }
     }
   }
-
-.container {
-  padding-top: 50px;
-  height: 100%;
-  background-color: #EEEEEE;
-  display: flex;
-
-  .side {
-
-    .mypage-nav {
-      .mypage-nav-list {
-        font-size: 14px;
-        .nav-list {
-          margin-bottom: 1px;
-          background-color: white;
-          height: 40px;
-          padding: 10px 0px 10px 10px;
-          text-decoration: none;
-          color: black;
-        }
-      }
-      .mypage-nav-head {
-        margin-top: 30px;
-        margin-bottom: 3px;
-        font-weight: bold;
-      }
-    }
-  }
-
-}

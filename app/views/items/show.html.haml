@@ -89,12 +89,8 @@
                     %td 
                       = @item.days_until_shipping.name
             .item-box__body__price__detail__optionalares
-              %ul
-                %li.item-box__body__price__detail__optionalares__likebtn
-                  %i
-                    =icon('fa', 'star')
-                    お気に入り
-                    0
+              #likes_buttons
+                = render partial: 'likes/like_itemshow', locals: { item: @item, likes: @likes}
               %ul.optinal
                 %li.optinalbtn
                   = link_to '#', class: "#" do
@@ -126,24 +122,6 @@
               次の商品
               %sapn<>
               %i.fas.fa-chevron-right
-        .relateditems
-          = link_to "#", class: "#" do
-            -# ベビー・キッズをもっとみる
-          -# .relateditems__itemlists
-          -#   .relateditems__itemlists__itemlist
-          -#     = link_to '#' do
-          -#       = image_tag asset_path("pict/item-003.png"), class:"relateditems__itemlists__itemlist__img"
-          -#       .relateditems__itemlists__itemlist__body
-          -#         .relateditems__itemlists__itemlist__body__name
-          -#           さば
-          -#           .relateditems__itemlists__itemlist__body__name__details
-          -#             %ul
-          -#               %il 500円
-          -#               %il 
-          -#                 %i
-          -#                   =icon('fa', 'star')
-          -#                   0
-          -#               %p (税込み)
 
 .itemlists-title
   .itemlists-title__box
@@ -172,8 +150,8 @@
                   - else
                     = "¥#{item.price.to_s(:delimited)}"
                 %li
-                  =icon('fa', 'star', class: 'itemlist__body__details__likeicon')
-                  0
+                  #likes_buttons
+                    = render partial: 'likes/like', locals: { item: item, likes: @likes}
               %p (税込み)
 
 = render 'exhibitionBtn'

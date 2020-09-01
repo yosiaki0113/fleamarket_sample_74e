@@ -15,6 +15,11 @@ crumb :mypage_logout do
   parent :mypage
 end
 
+crumb :likes do
+  link "お気に入り一覧", user_path(current_user)
+  parent :mypage
+end
+
 crumb :category_index do
   link "カテゴリー一覧", categories_path
 end

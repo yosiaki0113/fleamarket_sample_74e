@@ -14,9 +14,15 @@
             .sell-container__content__upload__items
               .sell-container__content__upload__items__box
                 %ul#output-box
+                  - if @item.persisted?
+                    - @item.images.each_with_index do |image, i|
+                      %li.preview-image{id: "upload-image#{i}", data:{image: {id: "#{i}"}}}
+                        %figure.preview-image__figure
+                          %img {src=}
+                      = image_tag "#{image.url}", data: { index: i }, width: "116", height: "118"
                   %div#image-input
                     %label.sell-container__content__upload__items__box__label{data: {label_id: 0 }}
-                      = f.fields_for :images do |image| 
+                      = f.fields_for :images do |image|
                         %div{"data-index" => "#{image.index}"}
                         = image.file_field :url,style: 'display: none;'
                         %pre

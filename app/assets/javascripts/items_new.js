@@ -1,6 +1,6 @@
 $(function(){
   $('#image-input').on('change', function(e){
-
+console.log('success')
     let files = e.target.files;
     $.each(files, function(index, file) {
     let reader = new FileReader();

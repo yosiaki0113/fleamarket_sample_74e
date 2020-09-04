@@ -16,12 +16,14 @@
                 %ul#output-box
                   - if @item.persisted?
                     - @item.images.each_with_index do |image, i|
-                      %li.preview-image{id: "upload-image#{i}", data:{image: {id: "#{i}"}}}
+                      %li.preview-image{"data-image-id" => "#{i}", :id => "upload-image#{i}"}
                         %figure.preview-image__figure
-                          %img {src=}
-                      = image_tag "#{image.url}", data: { index: i }, width: "116", height: "118"
+                          %img{:src => image.url.url, :title => "${file.name}"}
+                        .preview-image__button
+                          %a.preview-image__button__delete{"data-image-id" => "#{i}"} 削除
+
                   %div#image-input
-                    %label.sell-container__content__upload__items__box__label{data: {label_id: 0 }}
+                    %label.sell-container__content__upload__items__box__label
                       = f.fields_for :images do |image|
                         %div{"data-index" => "#{image.index}"}
                         = image.file_field :url,style: 'display: none;'

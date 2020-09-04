@@ -1,6 +1,5 @@
 $(function(){
   $('#image-input').on('change', function(e){
-console.log('success')
     let files = e.target.files;
     $.each(files, function(index, file) {
     let reader = new FileReader();
@@ -19,12 +18,12 @@ console.log('success')
           let imageLength = $('#output-box').children('li').length;
           let labelLength = $("#image-input>label").eq(-1).data('label-id');
   // プレビュー表示
-          $('#image-input').before(`<li class="preview-image" id="upload-image${labelLength}" data-image-id="${labelLength}">
+          $('#image-input').before(`<li class="preview-image" id = upload-image${labelLength} data-image-id= ${labelLength}>
                                       <figure class="preview-image__figure">
                                         <img src='${e.target.result}' title='${file.name}' >
                                       </figure>
                                       <div class="preview-image__button">
-                                        <a class="preview-image__button__delete" data-image-id="${labelLength}">削除</a>
+                                        <a class="preview-image__button__delete" data-image-id= ${labelLength} >削除</a>
                                       </div>
                                     </li>`);
           $("#image-input>label").eq(-1).css('display','none');

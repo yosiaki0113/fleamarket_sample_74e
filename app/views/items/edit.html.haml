@@ -42,7 +42,7 @@
               商品の説明
               %span.sell-title__require
                 必須
-          = f.text_area :text,{class: 'sell-container__content__description', required: "required", rows: '7', maxlength: '1000', placeholder: "商品の説明(必須　1,000文字以内)(色、素材、重さ、定価、注意点など)"}
+          = f.text_area :text,{class: 'sell-container__content__description', required: "required", rows: '7', maxlength: '1000', placeholder: "商品の説明(必須 1,000文字以内)(色、素材、重さ、定価、注意点など)"}
           .sell-container__content__word-count
             %span#word-count
               0
@@ -57,10 +57,13 @@
                   必須
             .sell-collection_select-c
               .sell-collection_select-c__label
-                = f.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択して下さい'}, {class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
-                = f.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択して下さい'}, {class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
-                = f.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択して下さい'}, {class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
+                = f.select :category_id,options_for_select(@category_parent_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.parent.id}),{},{class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
                 %i.fas.fa-chevron-down
+                = f.select :category_id,options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'sell-collection_select-c__input', id: 'select-children-box', required: "required"}
+                %i.fas.fa-chevron-down
+                = f.select :category_id,options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{},  {class: 'sell-collection_select-c__input', id: 'select-grandchildren-box', required: "required"}
+                %i.fas.fa-chevron-down
+
             .sell-title
               %h3.sell-title__text
                 ブランド

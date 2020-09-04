@@ -27,13 +27,21 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    # 親カテゴリを取得
+    @category_parent_array = Category.where(ancestry: nil)
+    # 子カテゴリを取得
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    # 孫カテゴリを取得
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
   end
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to items_path(@item.id)
     else
-      render :edit
+      redirect_to action: :edit
     end
   end
 

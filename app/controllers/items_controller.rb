@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item.images.new
     grandchild_category = @item.category
     child_category = grandchild_category.parent
     @category_parent_array = Category.where(ancestry: nil)
@@ -36,7 +37,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to items_path(@item.id)
+      redirect_to items_path
     else
       redirect_to action: :edit
     end

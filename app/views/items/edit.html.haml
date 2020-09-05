@@ -63,7 +63,6 @@
                 %i.fas.fa-chevron-down
                 = f.select :category_id,options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{},  {class: 'sell-collection_select-c__input', id: 'select-grandchildren-box', required: "required"}
                 %i.fas.fa-chevron-down
-
             .sell-title
               %h3.sell-title__text
                 ブランド

@@ -28,6 +28,8 @@
                         = f.fields_for :images do |image|
                           %div{"data-index" => "#{image.index}"}
                           = image.file_field :url,style: 'display: none;'
+                          - if image.object.persisted?
+                            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
                         %pre
                           %i.fas.fa-camera.fa-lg
         .sell-container__content

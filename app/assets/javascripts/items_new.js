@@ -29,8 +29,8 @@ $(function(){
           $("#image-input>label").eq(-1).css('display','none');
           
        if (imageLength < 9) {
-            $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
-                                        <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}"  type="file" name="item[images_attributes][${imageLength+1}][url]">
+            $("#image-input").append(`<label for="item_images${labelLength}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength}">
+                                        <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength}"  type="file" name="item[images_attributes][${imageLength}][url]">
                                         <i class="fas fa-camera fa-lg"></i>
                                       </label>`);         
           };

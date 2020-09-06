@@ -1,5 +1,5 @@
 $(function(){
-  $('#image-input').on('change', function(e){
+  $('#image-input').on('change',  function(e){
     let files = e.target.files;
     $.each(files, function(index, file) {
     let reader = new FileReader();
@@ -8,7 +8,6 @@ $(function(){
     lastIndex = $('.preview-image:last').data('index');
     fileIndex.splice(0, lastIndex);
     $('.hidden-destroy').hide();
-  //画像以外を選択した場合のエラー表示
       if(file.type.indexOf("image") < 0){
         alert("画像ファイルを指定してください。");
         return false;
@@ -41,17 +40,22 @@ $(function(){
   });
   $('#image-input').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    const hiddenCheck = $("#item_images_attributes_0__destroy");
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
     if ($('.js-file').length == 0) $('#image_input').append(buildFileField(fileIndex[0]));
+    //０枚の状態にしない
   });
   //プレビューの削除ボタンが押された場合
   $(document).on('click', '.preview-image__button__delete', function(){
+    console.log("aaa")
     let targetImageId = $(this).data('image-id');
     $(`#upload-image${targetImageId}`).remove();
     $(`label[data-label-id='${targetImageId}']`).remove();
+    const hiddenCheck = $("#item_images_attributes_0__destroy");
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
+
   });
   let imageLength = $('#output-box').children('li').length;
 });

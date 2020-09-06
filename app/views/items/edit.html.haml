@@ -22,14 +22,18 @@
                             %img{:src => image.url.url, :title => "#{i}"}
                           .preview-image__button
                             %a.preview-image__button__delete{"data-image-id" => "#{i}"} 削除
-                    
+                        
+                              
                     %div#image-input
-                      %label.sell-container__content__upload__items__box__label{for:"item_images_attributes_#{@item.images.length-1}_url"}
+                      %label.sell-container__content__upload__items__box__label{for:"item_images_attributes_#{@item.images.length-1}_url","data-label-id" => "#{@item.images.length-1}"}
                         = f.fields_for :images do |image|
-                          %div{"data-index" => "#{image.index}"}
-                          = image.file_field :url,style: 'display: none;'
+                          = image.file_field :url,style: 'display: none;', class: "js-file"
+                          
                           - if image.object.persisted?
-                            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                            = image.check_box :_destroy, data:{ index: image.index }
+                        -# - if @item.persisted?
+                        -#   %div{"data-index" => "#{@item.images.count}"}
+                        -#     = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
                         %pre
                           %i.fas.fa-camera.fa-lg
         .sell-container__content

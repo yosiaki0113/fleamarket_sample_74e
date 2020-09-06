@@ -30,10 +30,7 @@
                           = image.file_field :url,style: 'display: none;', class: "js-file"
                           
                           - if image.object.persisted?
-                            = image.check_box :_destroy, data:{ index: image.index }
-                        -# - if @item.persisted?
-                        -#   %div{"data-index" => "#{@item.images.count}"}
-                        -#     = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+                            = image.check_box :_destroy, data:{ index: image.index }, style: 'display: none;'
                         %pre
                           %i.fas.fa-camera.fa-lg
         .sell-container__content

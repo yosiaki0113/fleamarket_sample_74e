@@ -54,10 +54,7 @@ $(function(){
     $(`#upload-image${targetImageId}`).remove();
     $(`input[name="item[images_attributes][${targetImageId}][url]"]`).remove();
     // $(`label[data-label-id='${targetImageId}']`).remove();
-    // チェックボックスが反応する記述する必要ある
-  
     const hiddenCheck = $(`#item_images_attributes_${targetImageId}__destroy`);
-    //input内のtarとdataが一緒のものがhidden
     if (hiddenCheck) {
       hiddenCheck.prop('checked', true);
     }

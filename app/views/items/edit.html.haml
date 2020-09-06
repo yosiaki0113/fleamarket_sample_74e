@@ -21,14 +21,11 @@
                           %figure.preview-image__figure
                             %img{:src => image.url.url, :title => "#{i}"}
                           .preview-image__button
-                            %a.preview-image__button__delete{"data-image-id" => "#{i}"} 削除
-                        
-                              
+                            %a.preview-image__button__delete{"data-image-id" => "#{i}"} 削除        
                     %div#image-input
                       %label.sell-container__content__upload__items__box__label{for:"item_images_attributes_#{@item.images.length-1}_url","data-label-id" => "#{@item.images.length-1}"}
                         = f.fields_for :images do |image|
                           = image.file_field :url,style: 'display: none;', class: "js-file"
-                          
                           - if image.object.persisted?
                             = image.check_box :_destroy, data:{ index: image.index }, style: 'display: none;'
                         %pre
@@ -40,7 +37,6 @@
               %span.sell-title__require
                 必須
           = f.text_field :name, {class:'sell-container__content__name', required: "required", placeholder: '40文字まで'}
-
           .sell-title
             %h3.sell-title__text
               商品の説明
@@ -49,8 +45,8 @@
           = f.text_area :text,{class: 'sell-container__content__description', required: "required", rows: '7', maxlength: '1000', placeholder: "商品の説明(必須 1,000文字以内)(色、素材、重さ、定価、注意点など)"}
           .sell-container__content__word-count
             %span#word-count
-              0
-            &#47;1000
+            -#   0
+            -# &#47;1000
         .sell-container__content
           %h3.sell-sub-head 商品の詳細
           .sell-container__content__details

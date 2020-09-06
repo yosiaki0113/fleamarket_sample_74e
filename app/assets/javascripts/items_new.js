@@ -28,8 +28,8 @@ $(function(){
           $("#image-input>label").eq(-1).css('display','none');
           
        if (imageLength < 9) {
-            $("#image-input").append(`<label for="item_images${labelLength}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength}">
-                                        <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength}"  type="file" name="item[images_attributes][${imageLength}][url]">
+            $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
+                                        <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}"  type="file" name="item[images_attributes][${imageLength+1}][url]">
                                         <i class="fas fa-camera fa-lg"></i>
                                       </label>`);         
           };
@@ -52,10 +52,16 @@ $(function(){
     console.log("aaa")
     let targetImageId = $(this).data('image-id');
     $(`#upload-image${targetImageId}`).remove();
-    $(`label[data-label-id='${targetImageId}']`).remove();
-    const hiddenCheck = $("#item_images_attributes_0__destroy");
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
+    $(`input[name="item[images_attributes][${targetImageId}][url]"]`).remove();
+    // $(`label[data-label-id='${targetImageId}']`).remove();
+    // チェックボックスが反応する記述する必要ある
+  
+    const hiddenCheck = $(`#item_images_attributes_${targetImageId}__destroy`);
+    //input内のtarとdataが一緒のものがhidden
+    if (hiddenCheck) {
+      hiddenCheck.prop('checked', true);
+    }
 
   });
-  let imageLength = $('#output-box').children('li').length;
+  // let imageLength = $('#output-box').children('li').length;
 });

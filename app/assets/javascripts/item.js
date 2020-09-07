@@ -38,27 +38,15 @@ $(function(){
       reader.readAsDataURL(file);
     });
   });
-  $('#image-input').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');
-    const hiddenCheck = $("#item_images_attributes_0__destroy");
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
-    $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
-    if ($('.js-file').length == 0) $('#image_input').append(buildFileField(fileIndex[0]));
-    //０枚の状態にしない
-  });
   //プレビューの削除ボタンが押された場合
   $(document).on('click', '.preview-image__button__delete', function(){
     console.log("aaa")
     let targetImageId = $(this).data('image-id');
     $(`#upload-image${targetImageId}`).remove();
     $(`input[name="item[images_attributes][${targetImageId}][url]"]`).remove();
-    // $(`label[data-label-id='${targetImageId}']`).remove();
     const hiddenCheck = $(`#item_images_attributes_${targetImageId}__destroy`);
     if (hiddenCheck) {
       hiddenCheck.prop('checked', true);
     }
-
   });
-  // let imageLength = $('#output-box').children('li').length;
 });

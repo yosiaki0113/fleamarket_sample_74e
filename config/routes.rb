@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'card/new'
+  get 'card/show'
   get 'likes/create'
   get 'likes/destroy'
   devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions'}
@@ -25,4 +27,12 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   resources :categories, only: [:index, :show]
+  
+  resources :card, only: [:new, :show, :destroy] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
 end

@@ -27,8 +27,7 @@
                 %span (税込)
                 %span 送料込み
             .item-box__body__purchase
-              - if @item.buyer_id != nil
-              - else
+              -if user_signed_in? && @user.id != @item.seller_id
                 =  link_to "この商品を購入する", purchase_items_path, class: 'item-box__body__purchase--btn'
             .item-box__body__destory
               -if user_signed_in? && @user.id == @item.seller_id
@@ -111,18 +110,32 @@
                     =icon('fa', 'comment')
                   %span コメントする
         .item-box__body__destroy
-
         %ul.links
-          %li.link__prev
-            = link_to "#", class: "prev" do
-              %i.fas.fa-chevron-left
-              %span<>
-                前の商品
+          %li.link__previous
+            - if @item.next.present?
+              = link_to item_path(@item.next) do
+                %i.fas.fa-chevron-left
+                  前の商品
+                  -# = @item.next.name
+
           %li.link__next
-            = link_to "#", class: "next" do
-              次の商品
-              %sapn<>
-              %i.fas.fa-chevron-right
+            - if @item.previous.present?
+              = link_to item_path(@item.previous) do
+                次の商品
+                -# = @item.previous.name
+                %i.fas.fa-chevron-right
+
+        -# %ul.links
+        -#   %li.link__prev
+        -#     = link_to "#", class: "prev" do
+        -#       %i.fas.fa-chevron-left
+        -#       %span<>
+        -#         前の商品
+        -#   %li.link__next
+        -#     = link_to "#", class: "next" do
+        -#       次の商品
+        -#       %sapn<>
+        -#       %i.fas.fa-chevron-right
 
 .itemlists-title
   .itemlists-title__box

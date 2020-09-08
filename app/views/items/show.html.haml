@@ -116,26 +116,15 @@
               = link_to item_path(@item.next) do
                 %i.fas.fa-chevron-left
                   前の商品
-                  -# = @item.next.name
+
 
           %li.link__next
             - if @item.previous.present?
               = link_to item_path(@item.previous) do
                 次の商品
-                -# = @item.previous.name
                 %i.fas.fa-chevron-right
 
-        -# %ul.links
-        -#   %li.link__prev
-        -#     = link_to "#", class: "prev" do
-        -#       %i.fas.fa-chevron-left
-        -#       %span<>
-        -#         前の商品
-        -#   %li.link__next
-        -#     = link_to "#", class: "next" do
-        -#       次の商品
-        -#       %sapn<>
-        -#       %i.fas.fa-chevron-right
+
 
 .itemlists-title
   .itemlists-title__box

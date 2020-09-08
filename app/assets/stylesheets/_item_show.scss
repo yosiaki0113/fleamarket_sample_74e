@@ -44,7 +44,7 @@
             font-weight:bolder;
             font-size:40px;
             color:#fff;
-            background:#c00;
+            background:#3CCACE;
             opacity: 0.85;  
           }
         }
@@ -253,7 +253,7 @@
           height: 60px;
           width: 500px;
           border-radius: 100px;
-          background-color: red;
+          background-color: #3CCACE;
           margin: 0 auto;
           text-align: center;
           text-decoration: none;
@@ -266,6 +266,22 @@
       &__destory {
         margin-top: 40px;
         margin-bottom: 40px;
+        &--btn-edit {
+          display: block;
+          border-radius: 100px;
+          height: 60px;
+          width: 500px;
+          border-radius: 0.5em;
+          background-color: #3CCACE;
+          margin: 0 auto 40px;
+          text-align: center;
+          text-decoration: none;
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 60px;
+
+        }
         &--btn-not {
           display: block;
           height: 60px;
@@ -296,12 +312,15 @@
           font-weight: bold;
           line-height: 60px;
           transition: all 0.3s;
+          margin-bottom: 40px;
           cursor: pointer;
           &:hover{
             background-color: red;
             color:white
           }
         }
+
+
         #item-delete-btn{
           display: none;
         }

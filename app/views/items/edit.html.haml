@@ -1,0 +1,146 @@
+.sell
+  %main
+    .sell-container
+      = form_with model: @item,local:true do |f|
+        = render 'layouts/error_messages',model: f.object
+        .sell-container__content
+          .sell-title
+            %h3.sell-title__text
+              出品画像
+              %span.sell-title__require
+                必須
+          .sell-container__content__max-sheet 枠線をクリックしてファイルをアップロードしてください(最大10枚まで)
+          .sell-container__content__upload
+            .sell-container__content__upload__items
+              .sell-container__content__upload__items__box
+                %ul#output-box
+                  - if @item.persisted?
+                    - @item.images.each_with_index do |image, i|
+                      - if image.persisted?
+                        %li.preview-image{"data-image-id" => "#{i}", :id => "upload-image#{i}"}
+                          %figure.preview-image__figure
+                            %img{:src => image.url.url, :title => "#{i}"}
+                          .preview-image__button
+                            %a.preview-image__button__delete{"data-image-id" => "#{i}"} 削除        
+                    %div#image-input
+                      %label.sell-container__content__upload__items__box__label{for:"item_images_attributes_#{@item.images.length-1}_url","data-label-id" => "#{@item.images.length-1}"}
+                        = f.fields_for :images do |image|
+                          = image.file_field :url,style: 'display: none;', class: "js-file"
+                          - if image.object.persisted?
+                            = image.check_box :_destroy, data:{ index: image.index }, style: 'display: none;'
+                        %pre
+                          %i.fas.fa-camera.fa-lg
+        .sell-container__content
+          .sell-title
+            %h3.sell-title__text
+              商品名
+              %span.sell-title__require
+                必須
+          = f.text_field :name, {class:'sell-container__content__name', required: "required", placeholder: '40文字まで'}
+          .sell-title
+            %h3.sell-title__text
+              商品の説明
+              %span.sell-title__require
+                必須
+          = f.text_area :text,{class: 'sell-container__content__description', required: "required", rows: '7', maxlength: '1000', placeholder: "商品の説明(必須 1,000文字以内)(色、素材、重さ、定価、注意点など)"}
+          .sell-container__content__word-count
+            %span#word-count
+            -#   0
+            -# &#47;1000
+        .sell-container__content
+          %h3.sell-sub-head 商品の詳細
+          .sell-container__content__details
+            .sell-title
+              %h3.sell-title__text
+                カテゴリー
+                %span.sell-title__require
+                  必須
+            .sell-collection_select-c
+              .sell-collection_select-c__label
+                = f.select :category_id,options_for_select(@category_parent_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.parent.id}),{},{class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
+                %i.fas.fa-chevron-down
+                = f.select :category_id,options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'sell-collection_select-c__input', id: 'select-children-box', required: "required"}
+                %i.fas.fa-chevron-down
+                = f.select :category_id,options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{},  {class: 'sell-collection_select-c__input', id: 'select-grandchildren-box', required: "required"}
+                %i.fas.fa-chevron-down
+            .sell-title
+              %h3.sell-title__text
+                ブランド
+                %span.sell-title__require-a
+                  任意
+            .sell-collection_select
+              =f.text_field :brand,class:"sell-collection_select__brand",placeholder: "例)シャネル"
+            .sell-title
+              %h3.sell-title__text
+                商品の状態
+                %span.sell-title__require
+                  必須
+            .sell-collection_select
+              = f.label :condtion_id, {class: 'sell-collection_select__label'} do
+                = f.collection_select :condtion_id, Condtion.all, :id, :name, {prompt: '選択して下さい'} ,class: "sell-collection_select__input", required: "required"
+                %i.fas.fa-chevron-down
+        .sell-container__content
+          %h3.sell-sub-head
+            %p 配送について
+            = link_to '',target: '_blank',class: 'sell-sub-head__guides-link' do
+              %i.far.fa-question-circle
+          .sell-container__content__delivery
+            .sell-title
+              %h3.sell-title__text
+                配送料の負担
+                %span.sell-title__require
+                  必須
+            .sell-collection_select
+              = f.label :deliverycost_id, {class: 'sell-collection_select__label'} do
+                = f.collection_select :postage_type_id, PostageType.all, :id, :name, {prompt: '選択して下さい'} ,class: "sell-collection_select__input", required: "required"
+                %i.fas.fa-chevron-down
+
+            .sell-title
+              %h3.sell-title__text
+                発送元の地域
+                %span.sell-title__require
+                  必須
+            .sell-collection_select
+              = f.label :pref_id, class: 'sell-collection_select__label' do
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '選択して下さい'} ,class: "sell-collection_select__input", required: "required"
+                %i.fas.fa-chevron-down
+
+            .sell-title
+              %h3.sell-title__text
+                発送までの日数
+                %span.sell-title__require
+                  必須
+            .sell-collection_select
+              = f.label :delivery_days_id, class: 'sell-collection_select__label' do
+                = f.collection_select :days_until_shipping_id, DaysUntilShipping.all, :id, :name, {prompt: '選択して下さい'} ,class: "sell-collection_select__input", required: "required"
+                %i.fas.fa-chevron-down
+
+        .sell-container__content
+          %h3.sell-sub-head
+            %p 販売価格(¥300〜9,999,999)
+            = link_to '',target: '_blank', class: 'sell-sub-head__guides-link' do
+              %i.far.fa-question-circle
+          .sell-container__content__price
+            .sell-title
+              %h3.sell-title__text
+                販売価格
+                %span.sell-title__require
+                  必須
+            .sell-container__content__price__form
+              = f.label :price, class: 'sell-container__content__price__form__label' do
+                ¥
+                = f.number_field :price, {placeholder: '0', autocomplete:"off", class: 'sell-container__content__price__form__box', required: "required"}
+
+          -#後日追加実装予定の項目です
+          .sell-container__content__commission
+            .sell-container__content__commission__left
+              販売手数料 （10%）
+            .sell-container__content__commission__right ー
+          .sell-container__content__profit
+            .sell-container__content__profit__left
+              販売利益
+            .sell-container__content__profit__right ー
+
+          .submit-btn
+            = f.submit '編集する', class: 'submit-btn__sell-btn'
+            = link_to 'もどる', root_path, class: 'submit-btn__return-btn'

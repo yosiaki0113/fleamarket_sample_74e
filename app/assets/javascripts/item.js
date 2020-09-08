@@ -1,6 +1,5 @@
 $(function(){
-  $('#image-input').on('change', function(e){
-
+  $('#image-input').on('change',  function(e){
     let files = e.target.files;
     $.each(files, function(index, file) {
     let reader = new FileReader();
@@ -9,7 +8,6 @@ $(function(){
     lastIndex = $('.preview-image:last').data('index');
     fileIndex.splice(0, lastIndex);
     $('.hidden-destroy').hide();
-  //画像以外を選択した場合のエラー表示
       if(file.type.indexOf("image") < 0){
         alert("画像ファイルを指定してください。");
         return false;
@@ -19,12 +17,12 @@ $(function(){
           let imageLength = $('#output-box').children('li').length;
           let labelLength = $("#image-input>label").eq(-1).data('label-id');
   // プレビュー表示
-          $('#image-input').before(`<li class="preview-image" id="upload-image${labelLength}" data-image-id="${labelLength}">
+          $('#image-input').before(`<li class="preview-image" id = upload-image${labelLength} data-image-id= ${labelLength}>
                                       <figure class="preview-image__figure">
                                         <img src='${e.target.result}' title='${file.name}' >
                                       </figure>
                                       <div class="preview-image__button">
-                                        <a class="preview-image__button__delete" data-image-id="${labelLength}">削除</a>
+                                        <a class="preview-image__button__delete" data-image-id= ${labelLength} >削除</a>
                                       </div>
                                     </li>`);
           $("#image-input>label").eq(-1).css('display','none');
@@ -40,19 +38,14 @@ $(function(){
       reader.readAsDataURL(file);
     });
   });
-  $('#image-input').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
-    $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
-    if ($('.js-file').length == 0) $('#image_input').append(buildFileField(fileIndex[0]));
-  });
   //プレビューの削除ボタンが押された場合
   $(document).on('click', '.preview-image__button__delete', function(){
     let targetImageId = $(this).data('image-id');
     $(`#upload-image${targetImageId}`).remove();
-    $(`label[data-label-id='${targetImageId}']`).remove();
+    $(`input[name="item[images_attributes][${targetImageId}][url]"]`).remove();
+    const hiddenCheck = $(`#item_images_attributes_${targetImageId}__destroy`);
+    if (hiddenCheck) {
+      hiddenCheck.prop('checked', true);
+    }
   });
-  let imageLength = $('#output-box').children('li').length;
 });

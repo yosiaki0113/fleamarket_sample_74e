@@ -40,7 +40,6 @@ $(function(){
   });
   //プレビューの削除ボタンが押された場合
   $(document).on('click', '.preview-image__button__delete', function(){
-    console.log("aaa")
     let targetImageId = $(this).data('image-id');
     $(`#upload-image${targetImageId}`).remove();
     $(`input[name="item[images_attributes][${targetImageId}][url]"]`).remove();

@@ -1,0 +1,35 @@
+- breadcrumb :likes
+= render "categories/breadcrumbs"
+
+.likes
+  .likes-title
+    お気に入り一覧
+    %span
+      = "(#{@like_items.count}件)"
+  .itemlists                       
+    - @like_items.each do |item|
+      %li.itemlist
+        = link_to item_path(item.id) do
+          - if item.buyer_id != nil
+            .itemlist__sold
+              .itemlist__sold__text
+                S O L D
+          .itemlist__img
+            = item.images.first(1).each do |image|
+              = image_tag image.url.url
+          .itemlist__body
+            .itemlist__body__name
+              = item.name
+            .itemlist__body__details
+              %ul
+                %li
+                  - if item.buyer_id != nil
+                    .itemlist__body__details__sold
+                      S O L D
+                  - else
+                    = "¥#{item.price.to_s(:delimited)}"
+                %li
+                  #likes_buttons
+                    = render partial: 'likes/like', locals: { item: item, likes: @likes}
+              %p (税込み)
+= render "nav-list"

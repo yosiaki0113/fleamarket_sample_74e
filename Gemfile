@@ -88,3 +88,5 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-i18n'
 gem 'gretel' #パンくずの実装用
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'

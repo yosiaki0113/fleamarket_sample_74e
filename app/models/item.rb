@@ -19,4 +19,11 @@ class Item < ApplicationRecord
             :postage_type_id, 
             :days_until_shipping_id,
             :category_id,  presence: true
+
+  belongs_to :user, optional: true
+  has_many :likes, dependent: :destroy
+  def like_user(user_id)
+   likes.find_by(user_id: user_id)
+  end
+
 end

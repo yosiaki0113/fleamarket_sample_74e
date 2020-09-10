@@ -1,10 +1,32 @@
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-= form_tag(card_path(current_user.id), method: :delete, id: 'charge-form',  name: "inputForm") do 
-          %input{ type: "hidden", name: "card_id", value: "" }
-          %button.delete-btn 削除する
+.cardmain
+  .cardheader
+    支払い方法
+  .cardinner
+    .cardinner__title
+      クレジットカード一覧
+    %ul.cardinner__list
+      %li.cardinner__list__cardIcon
+        -if @default_card_information.brand == 'Visa'
+          = image_tag '//pcweb-assets.mercdn.net/assets/img/card/visa.svg?2246739708', width: '49', height: '20' 
+        -elsif @default_card_information.brand == 'MasterCard'
+          = image_tag '//pcweb-assets.mercdn.net/assets/img/card/master-card.svg?2246739708', width: '34', height: '20'
+        -elsif @default_card_information.brand == 'JCB'
+          = image_tag '//pcweb-assets.mercdn.net/assets/img/card/jcb.svg?2246739708', width: '32', height: '20'
+        -elsif @default_card_information.brand == 'American Express'
+          = image_tag '//pcweb-assets.mercdn.net/assets/img/card/american_express.svg?2246739708', width: '21', height: '20'
+        -elsif @default_card_information.brand == 'Diners Club'
+          = image_tag '//pcweb-assets.mercdn.net/assets/img/card/dinersclub.svg?2246739708', width: '32', height: '20'
+        -elsif @default_card_information.brand == 'Discover'
+          = image_tag '//pcweb-assets.mercdn.net/assets/img/card/discover.svg?2246739708', width: '32', height: '20'
+        - else
+          = @default_card_information.brand
+      %li.cardinner__list__cardNum
+        = "**** **** **** " + @default_card_information.last4
+      %li.cardinner__list__cardExp
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+
+      = link_to '削除する', card_path(current_user.id), class: 'cardinner__list__removeBtn', method: :delete
+
+= render "users/nav-list"

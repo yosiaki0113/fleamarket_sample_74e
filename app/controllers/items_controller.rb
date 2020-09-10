@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
     @seller = Item.find(params[:id]).seller
     @user = current_user
     @items_f = Item.all.includes(:user)
+    @order = Item.find(params[:id])
   end
 
   def destroy

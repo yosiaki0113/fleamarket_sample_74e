@@ -1,0 +1,48 @@
+.purchase
+  .purchase__main
+    .purchase__main--top
+      購入内容の確認
+    .purchase__main__goods
+      %p
+        = @item.name
+      %br
+      = image_tag "#{@image.url}", class: "purchase__main__goods--image"
+      .purchase__main__goods__text
+        %p.small_bold_text
+    .purchase__main__items
+      .purchase__main__items__item
+        %p.large_bold_text 支払い金額
+        %p.large_bold_text 
+          = "¥#{@item.price.to_s(:delimited)}"
+      .purchase__main__items__item__text
+      .purchase__main__items__item
+        %p.small_bold_text 支払い方法
+        %p.change
+        = link_to "変更する ＞",card_index_path
+      .purchase__main__items__item__text
+        %p クレジットカード
+        %p 
+          = "**** **** **** " + @default_card_information.last4
+        %p 
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = "有効期限:  #{exp_month + "/" + exp_year}"
+        %p
+        = icon('fa', 'credit-card')
+        = @default_card_information.brand
+
+      .purchase__main__items__item
+        %p.small_bold_text 配送先
+        %p.change
+      .purchase__main__items__item__text
+        %p 
+          = "〒 #{@address.prefecture}"
+        %p
+          = @address.city
+          = @address.house_number
+          = @address.building_name
+        %p 
+          = "#{@address.destination_family_name} #{@address.destination_first_name}  様" 
+
+        = form_tag(item_pay_path(@item), method: :post) do
+          %button.purchase__main__items--button 購入する

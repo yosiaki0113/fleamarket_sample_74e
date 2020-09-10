@@ -87,4 +87,6 @@ gem 'active_hash' #商品配送方法の選択に使用
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'rails-i18n'
-gem 'gretel' #パンくずの実装
+gem 'gretel' #パンくずの実装用
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'

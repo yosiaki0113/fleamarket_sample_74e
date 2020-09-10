@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_items, only: [:index,:show_itemlist,:show]
-  before_action :set_items_c, only: [:show]
+  before_action :set_items, only: [:index, :show_itemlist, :show, :edit, :update]
+  before_action :set_items_c, only: [:show, :edit, :update]
   before_action :check_user_signin, only: [:new] 
   before_action :set_likes_items
 
@@ -25,6 +25,24 @@ class ItemsController < ApplicationController
     @item.images.new
     @category_parent_array = Category.roots
     render layout: 'sub_header_footer'
+  end
+
+  def edit
+    @item.images.new
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    @category_parent_array = Category.where(ancestry: nil)
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+    render layout: 'sub_header_footer'
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item.id)
+    else
+      redirect_to action: :edit
+    end
   end
 
   def category_children

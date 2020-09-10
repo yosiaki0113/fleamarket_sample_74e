@@ -8,6 +8,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token[7,20]
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
     @user = User.new(user_params)
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
@@ -15,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     session["devise.regist_data"] = user_params
     @shipping_address = @user.shipping_addresses.build
-    render :new_shipping_address
+    render :new_shipping_address and return
   end
 
   def create_shipping_address

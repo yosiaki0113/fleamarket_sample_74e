@@ -25,14 +25,19 @@ Rails.application.routes.draw do
       get 'category_grandchildren', defaults: { format: 'json' }
     end
     resources :likes, only: [:create, :destroy]
+    resources :order, only: [:index]
+    post 'pay', to: 'order#pay'
+    get 'done', to: 'order#done'
+
   end
   resources :categories, only: [:index, :show]
   
-  resources :card, only: [:new, :show, :destroy] do
+  resources :card, only: [:index, :new, :show, :destroy] do
     collection do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
+      get 'card_add'
     end
   end
 end

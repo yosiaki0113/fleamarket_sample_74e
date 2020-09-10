@@ -1,6 +1,10 @@
 class CardController < ApplicationController
   require "payjp"
-
+  before_action :set_likes_items
+  before_action :set_cards
+  def index
+    redirect_to action: "show" if @card.exists?
+  end
   def new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
@@ -35,13 +39,13 @@ class CardController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to action: "new"
+      redirect_to action: "index"
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
     card = Card.where(user_id: current_user.id).first
     if card.blank?
-      redirect_to action: "new" 
+      redirect_to action: "index" 
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -49,10 +53,13 @@ class CardController < ApplicationController
     end
   end
 
-  before_action :set_likes_items
+
   def set_likes_items
     if user_signed_in?
       @like_items = Item.where(id: current_user.likes.select("item_id"))
     end
+  end
+  def set_cards
+    @card = Card.where(user_id: current_user.id)
   end
 end

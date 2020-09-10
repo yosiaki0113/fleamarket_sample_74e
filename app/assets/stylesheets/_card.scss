@@ -158,18 +158,18 @@
         }
       }
       &__addBtn{
+        width: 100%;
         text-align: center;
-        a{
-          background: #ea352d;
-          border: 1px solid #ea352d;
-          color: #fff;
-          padding: 20px 120px;
-          border-radius: 0.4em;
-          text-decoration: none;
-          &:hover{
-            background-color: darken($color: red, $amount: 5%);
-            transition: all 0.3s;
-          }
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        padding: 20px 120px;
+        border-radius: 0.4em;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover{
+          background-color: darken($color: red, $amount: 5%);
+          transition: all 0.3s;
         }
       }
     }

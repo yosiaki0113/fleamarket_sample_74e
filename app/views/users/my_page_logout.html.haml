@@ -1,0 +1,7 @@
+- breadcrumb :mypage_logout
+= render "categories/breadcrumbs"
+.content
+  .logout-content
+    .logout-icon
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'a'
+= render "nav-list"

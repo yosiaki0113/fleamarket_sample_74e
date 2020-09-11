@@ -28,9 +28,9 @@
         %ul.mypage-nav-list
           %li.nav-list= link_to "プロフィール", "#", class: "nav-list"
           %li.nav-list= link_to "発送元・お届け先住所変更", "#", class: "nav-list"
-          %li.nav-list= link_to "支払い方法", "#", class: "nav-list"
+          %li.nav-list= link_to "支払い方法", card_index_path, class: "nav-list"
           %li.nav-list= link_to "メール/パスワード", "#", class: "nav-list"
           %li.nav-list= link_to "本人情報", "#", class: "nav-list"
           %li.nav-list= link_to "電話番号の確認", "#", class: "nav-list"
-          %li.nav-list= link_to "クレジットカード登録", "#", class: "nav-list" 
+          %li.nav-list= link_to "クレジットカード登録", new_card_path, class: "nav-list" 
           %li.nav-list= link_to "ログアウト", my_page_logout_items_path, class: "nav-list" 

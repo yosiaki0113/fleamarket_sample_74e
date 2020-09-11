@@ -27,8 +27,8 @@
                 %span (税込)
                 %span 送料込み
             .item-box__body__purchase
-              -if user_signed_in? && @user.id != @item.seller_id
-                =  link_to "この商品を購入する", purchase_items_path, class: 'item-box__body__purchase--btn'
+              -if user_signed_in? && @user.id != @item.seller_id && @item.buyer_id == nil
+                =  link_to "この商品を購入する", item_order_index_path(@order), class: 'item-box__body__purchase--btn'
             .item-box__body__destory
               -if user_signed_in? && @user.id == @item.seller_id
                 = link_to "この商品を編集する", edit_item_path(@item.id), class: 'item-box__body__destory--btn-edit'

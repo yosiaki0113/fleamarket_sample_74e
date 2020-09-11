@@ -7,7 +7,6 @@ class OrderController < ApplicationController
     @category = Category.find(@item.category_id)
     @user = current_user
     @address = current_user.shipping_addresses[0]
-    # binding.pry
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to controller: "card", action: "new"

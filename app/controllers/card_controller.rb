@@ -31,7 +31,7 @@ class CardController < ApplicationController
   end
 
   def destroy #PayjpとCardデータベースを削除します
-    card = find_by(user_id: current_user.id)
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -43,7 +43,7 @@ class CardController < ApplicationController
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
-    card = find_by(user_id: current_user.id)
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "index" 
     else

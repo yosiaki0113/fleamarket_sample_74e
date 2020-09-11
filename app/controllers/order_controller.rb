@@ -10,12 +10,14 @@ class OrderController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to controller: "card", action: "new"
+      return
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
-    render layout: 'sub_header_footer'
+    render layout: 'sub_header_footer' 
+    return
   end
 
   def pay
@@ -38,5 +40,9 @@ class OrderController < ApplicationController
     if user_signed_in?
       @like_items = Item.where(id: current_user.likes.select("item_id"))
     end
+  end
+
+  def done
+    render layout: 'sub_header_footer'
   end
 end

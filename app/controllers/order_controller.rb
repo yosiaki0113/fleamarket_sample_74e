@@ -16,6 +16,7 @@ class OrderController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+    render layout: 'sub_header_footer'
   end
 
   def pay

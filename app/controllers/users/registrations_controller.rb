@@ -35,6 +35,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
+  def sorry_goole
+  end
+
   private
 
   def user_params

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'show_itemlist'
       get 'purchase','done','card_add','card_new','card_done'
       get 'my_page','my_page_logout'
+      get 'search'
     end
     collection do
       get 'category_children', defaults: { format: 'json' }

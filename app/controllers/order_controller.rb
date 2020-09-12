@@ -12,7 +12,8 @@ class OrderController < ApplicationController
       redirect_to controller: "card", action: "new"
       return
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      # Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
@@ -23,7 +24,8 @@ class OrderController < ApplicationController
   def pay
     @item = Item.find(params[:item_id])
     card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    # Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
     :amount => @item.price,
     :customer => card.customer_id,

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post 'create_shipping_addresses', to: 'users/registrations#create_shipping_address'
     get 'likes', to: 'users#likes'
     get 'sorry_google', to: 'users/registrations#sorry_google'
+    get 'sorry_google_login', to: 'users/sessions#sorry_google_login'
   end
   root 'items#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

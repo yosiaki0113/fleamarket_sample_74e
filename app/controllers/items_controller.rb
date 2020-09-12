@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   before_action :set_items_c, only: [:show]
   before_action :check_user_signin, only: [:new] 
   before_action :set_likes_items
-
   
   def index
   end
@@ -41,7 +40,6 @@ class ItemsController < ApplicationController
       @item.brand = nil
     end
     if @item.save
-      
       redirect_to root_path, notice: '商品を出品しました'
     else
       @item.images.new
@@ -76,6 +74,10 @@ class ItemsController < ApplicationController
   def my_page
   end
 
+  def search
+    @items = Item.search(params[:keyword]).order("created_at DESC")
+  end
+ 
   private
   def item_params
     params.require(:item).permit(:name, :category_id, :price, :text, :brand,

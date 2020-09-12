@@ -20,6 +20,8 @@ ja:
         house_number: "番地"
       item:
         images: "※出品画像"
+        category: "※カテゴリー"
+        category_id: "※カテゴリー"
 
     errors:
       messages:

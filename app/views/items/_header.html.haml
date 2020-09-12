@@ -6,9 +6,9 @@
         = link_to '/' do
           = image_tag asset_path("logo/logo.png"),class:"header-top__icon__logo"
       .header-top__searchBox
-        %form.header-top__searchBox__form
-          %input.header-top__searchBox__form__input{placeholder: "キーワードから探す"}/
-          %button.header-top__searchBox__form__button{type: "submit"}
+        = form_with(url: search_items_path, local: true, method: :get,class: "header-top__searchBox__form") do |form|
+          = form.text_field :keyword, placeholder: "何かお探しですか?", class: "header-top__searchBox__form__input"
+          = button_tag type: 'submit', class: 'header-top__searchBox__form__button' do
             = image_tag asset_path("icon/icon-search 1.png"),class:"header-top__searchBox__form__button__icon"
 
     .header-nav

@@ -1,9 +1,14 @@
 .main
   %h2 会員情報入力
   .google
-    = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "google--btn" do
-      %i.fab.fa-google
-      Googleで登録する
+    - if Rails.env.production?
+      = link_to sorry_google_path, class: "google--btn" do
+        %i.fab.fa-google
+        Googleで登録する
+    - else
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "google--btn" do
+        %i.fab.fa-google
+        Googleで登録する
   = form_for(@user, url: user_registration_path) do |f|
     = render "devise/shared/error_messages", resource: resource
     .field

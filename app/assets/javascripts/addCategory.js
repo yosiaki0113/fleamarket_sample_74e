@@ -27,7 +27,7 @@ $(function(){
         });
         var childSelectHtml = '';
         childSelectHtml = `<div class="sell-collection_select-c__label" id= 'select-children-box'>
-                             <select class="sell-collection_select-c__input" id="category-select-children" required="required" name="item[category_id]">
+                             <select class="sell-collection_select-c__input" id="category-select-children" required="required" name="item[category]">
                              <option value="">選択して下さい</option>
                              ${optionHtml}
                              </select>

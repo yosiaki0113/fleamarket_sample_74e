@@ -2,6 +2,9 @@
 
 class Users::SessionsController < Devise::SessionsController
   layout 'sub_header_footer'
+
+  def sorry_google_login
+  end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

@@ -12,6 +12,54 @@ body {
       padding-top: 20px;
       text-align: center;
     }
+    .google {
+      height: 40px;
+      width: 300px;
+      margin: 0 auto;
+      border: solid 1px red;
+      border-radius: 1em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      &--btn {
+        display: inline-block;
+        height: 40px;
+        width: 300px;
+        line-height: 40px;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        font-size: 15px;
+        .fa-google {
+          padding-left: 15px;
+          padding-right: 50px;
+          color: red;
+        }
+      }
+    }
+    .google-login {
+      height: 40px;
+      width: 300px;
+      margin: 0 auto;
+      border: solid 1px red;
+      border-radius: 1em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      &--btn {
+        display: inline-block;
+        height: 40px;
+        width: 300px;
+        line-height: 40px;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        font-size: 15px;
+        .fa-google {
+          padding-left: 15px;
+          padding-right: 40px;
+          color: red;
+        }
+      }
+    }
     .field {
       margin: 0 auto;
       height: 100px;
@@ -132,7 +180,27 @@ body {
         text-align: center;
         color: #ffffff;
         font-weight: bold;
-        
+      }
+    }
+  }
+  .main-sorry {
+    font-size: 25px;
+    text-align: center;
+    h1 {
+      margin-top: 100px;
+    }
+    &__go-to {
+      margin: 20px 0 100px 0;
+      &--button {
+        width: 400px;
+        height: 100px;
+        background-color: #3CCACE;
+        display: inline-block;
+        line-height: 100px;
+        text-decoration: none;
+        text-align: center;
+        color: #ffffff;
+        font-weight: bold;
       }
     }
   }

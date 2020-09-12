@@ -1,0 +1,11 @@
+.cardmain
+  .cardheader
+    支払い方法
+  .cardinner
+    .cardinner__titleadd
+      クレジットカード一覧
+    .cardinner__addcard
+      = link_to new_card_path, class: 'cardinner__addcard__btn' do
+        = icon('fa', 'credit-card')
+        クレジットカードを追加する
+= render "users/nav-list"

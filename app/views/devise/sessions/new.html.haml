@@ -1,5 +1,15 @@
 .main
   %h2 ログイン画面
+  %br
+  .google-login
+    - if Rails.env.production?
+      = link_to sorry_google_login_path, class: "google-login--btn" do
+        %i.fab.fa-google
+        Googleでログインする
+    - else
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "google--btn" do
+        %i.fab.fa-google
+        Googleでログインする
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       = f.label :メールアドレス, class: "field--label"

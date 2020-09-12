@@ -24,6 +24,10 @@ Things you may want to cover:
 * ...
 
 # DB設計
+
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/9795cc9d154a1fbb0ccd7d635720e667.png)](https://gyazo.com/9795cc9d154a1fbb0ccd7d635720e667)
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -32,11 +36,12 @@ Things you may want to cover:
 |nickname|string|null: false|
 ### Association
 - has_many :shipping_addresses, dependent: :destroy
-- has_many :credit_cards, dependent: :destroy
+- has_many :cards, dependent: :destroy
 - has_many :seller_items, class_name: "Item", foreign_key: "seller_id"
 - has_many :buyer_items, class_name: "Item", foreign_key: "buyer_id"
 - has_one :profile, dependent: :destroy
-※ user が消えると shipping_address,credit-card,profile が消えることになる
+- has_many :likes
+- has_many :sns_credentials
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -46,7 +51,7 @@ Things you may want to cover:
 |birth_year|integer|null:false|
 |birth_month|integer|null:false|
 |birth_day|integer|null:false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
@@ -57,22 +62,22 @@ Things you may want to cover:
 |destination_family_name|string|null: false|
 |destination_first_name_kana|string|null: false|
 |destination_family_name_kana|string|null: false|
-|post_code|integer|null: false|
-|prefectures|string|null: false|
+|post_code|string|null: false|
+|prefecture|integer|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
 |building_name|string|null: false|
-|phone|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|phone|integer|string: false|
+|user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
-## credit_cardsテーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |customer_id|string|null:false|
 |card_id|string|null:false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 ※ 個人情報保護のため、DBにカード情報を記録せず、pay.jpを用いて管理する。
@@ -83,24 +88,29 @@ Things you may want to cover:
 |name|string|null:false|
 |text|text|null:false|
 |price|integer|null:false|
-|condtion|string|null:false|
-|prefectures|string|null: false|
-|postage_type|string|null: false|
-|days_until_shipping|string|null: false|
-|trading_status|string|null: false|
+|condtion_id|integer|null:false|
+|prefecture_id|integer|null: false|
+|postage_type_id|integer|null: false|
+|days_until_shipping_id|integer|null: false|
+|trading_status|string|null: false, defaut:"出品中"|
 |purchase_date|timestamp|null: false|
 |close_date|timestamp|null: false|
 |seller_id|integer|null: false, foreign_key: true|
 |buyer_id|integer|foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-|brand_id|integer|foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|brand|string||
+|likes_count|integer|defaut:"0"|
 ### Association
 - belongs_to :seller, class_name: "User", foreign_key: "seller_id"
 - belongs_to :buyer, class_name: "User", foreign_key: "buyer_id"
-- belongs_to :brand
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :condtion
+- belongs_to_active_hash :days_until_shipping
+- belongs_to_active_hash :postage_type
 - belongs_to :category
+- belongs_to :user, optional: true
 - has_many :images, dependent: :destroy
-※ item が消えると image が消えることになる。
+- has_many :likes, dependent: :destroy
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -116,13 +126,28 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |url|string|null:false|
-|item_id|integer|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
+- mount_uploader :url, ImageUploader
 
-## brandsテーブル
+## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null:false|
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
 ### Association
-- has_many :items
+- belongs_to :user
+- belongs_to :item, counter_cache: :likes_count
+
+## sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|url|string||
+|url|string||
+|user_id|references|foreign_key: true|
+### Association
+- belongs_to :user, optional: true
+- has_one :profile, dependent: :destroy
+- accepts_nested_attributes_for :profile
+- has_many :shipping_addresses, dependent: :destroy

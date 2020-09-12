@@ -18,12 +18,23 @@ class Item < ApplicationRecord
             :prefecture_id, 
             :postage_type_id, 
             :days_until_shipping_id,
-            :category_id,  presence: true
+            :category_id, 
+            :category,  presence: true
 
   belongs_to :user, optional: true
   has_many :likes, dependent: :destroy
+
+
   def like_user(user_id)
    likes.find_by(user_id: user_id)
+  end
+
+  def self.search(search)
+    if search
+      Item.where('name LIKE(?)',"%#{search}%")
+    else
+      Item.allow
+    end
   end
 
 end

@@ -34,7 +34,7 @@
               商品の説明
               %span.sell-title__require
                 必須
-          = f.text_area :text,{class: 'sell-container__content__description', required: "required", rows: '7', maxlength: '1000', placeholder: "商品の説明(必須　1,000文字以内)(色、素材、重さ、定価、注意点など)"}
+          = f.text_area :text,{class: 'sell-container__content__description', required: "required", rows: '7', maxlength: '1000', placeholder: "商品の説明(必須 1,000文字以内)\n(色、素材、重さ、定価、注意点などを入力してください)"}
           .sell-container__content__word-count
             %span#word-count
               0
@@ -49,7 +49,10 @@
                   必須
             .sell-collection_select-c
               .sell-collection_select-c__label
-                = f.collection_select :category_id, Category.roots, :id, :name, {prompt: '選択して下さい'}, {class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
+                = f.collection_select :category, Category.roots, :id, :name, {prompt: '選択して下さい'}, {class: 'sell-collection_select-c__input', id: 'category-select-parent', required: "required"}
+                - if @item.category.present?
+                  = f.collection_select :category, Category.where("ancestry like ?", "#{@item.category.parent.ancestry}"), :id, :name,{prompt: '選択して下さい'},class: 'sell-collection_select-c__input',id: 'select-children-box'
+                  = f.collection_select :category_id, Category.where("ancestry like ?", "#{@item.category.ancestry}"), :id, :name,{prompt: '選択して下さい'},  class: 'sell-collection_select-c__input',id: 'select-grandchildren-box'
                 %i.fas.fa-chevron-down
             .sell-title
               %h3.sell-title__text
@@ -117,7 +120,7 @@
             .sell-container__content__price__form
               = f.label :price, class: 'sell-container__content__price__form__label' do
                 ¥
-                = f.number_field :price, {placeholder: '0', value: '', autocomplete:"off", class: 'sell-container__content__price__form__box', required: "required"}
+                = f.number_field :price, {placeholder: '0', class: 'sell-container__content__price__form__box', required: "required",min: "300",max: "9999999"}
 
           -#後日追加実装予定の項目です
           .sell-container__content__commission
@@ -131,4 +134,4 @@
 
           .submit-btn
             = f.submit '出品する', class: 'submit-btn__sell-btn'
-            = link_to 'もどる', root_path, class: 'submit-btn__return-btn'
+            = link_to 'トップページへもどる', root_path, class: 'submit-btn__return-btn'

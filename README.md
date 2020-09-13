@@ -26,7 +26,7 @@ Things you may want to cover:
 # DB設計
 
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/9795cc9d154a1fbb0ccd7d635720e667.png)](https://gyazo.com/9795cc9d154a1fbb0ccd7d635720e667)
+[![Image from Gyazo](https://i.gyazo.com/5fb6a0d3dec6e6c0e56e5d10f7523070.png)](https://gyazo.com/5fb6a0d3dec6e6c0e56e5d10f7523070)
 
 ## usersテーブル
 |Column|Type|Options|
